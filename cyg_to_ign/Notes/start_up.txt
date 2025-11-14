@@ -1,0 +1,8 @@
+to start up the venv:
+    directory:          C:\Users\graham.lasseigne\_development\cygnet_to_ignition\cygnet-to-ignition> 
+    command:            .venv/Scripts/activate 
+
+add library using uv:
+    directory:          C:\Users\graham.lasseigne\_development\cygnet_to_ignition\cygnet-to-ignition>
+    command:            uv add [insert library name]
+
