@@ -1,8 +1,20 @@
+root:                   C:\Users\user.name\_development\cygnet_to_ignition
+
 to start up the venv:
-    directory:          C:\Users\graham.lasseigne\_development\cygnet_to_ignition\cygnet-to-ignition> 
+    directory:          root 
     command:            .venv/Scripts/activate 
 
 add library using uv:
-    directory:          C:\Users\graham.lasseigne\_development\cygnet_to_ignition\cygnet-to-ignition>
+    directory:          root
     command:            uv add [insert library name]
 
+git save workflow: 
+    directory:          root
+    commands:           git status
+                        git add *
+                        git commit -m "End of day: <describe changes>"
+                        git push origin main
+
+git latest changes:
+    directory:          root
+    command:            git pull origin main

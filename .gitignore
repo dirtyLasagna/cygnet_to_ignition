@@ -10,5 +10,5 @@ wheels/
 .venv
 
 # folders of data
-cygnet_input
+TEXAS_TRS.csv
 cygnet_test_data
