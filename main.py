@@ -1,63 +1,24 @@
+# path
 from pathlib import Path
 
+# rich library
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 from rich.prompt import Prompt
 from rich.rule import Rule
 
-from cyg_to_ign.Scripts.parse_trs import run
+# common
+from cyg_to_ign.Scripts.common  import getRootFolder
+
+# parse functions
+from cyg_to_ign.Scripts.parse_trs import runParseTRS
+from cyg_to_ign.Scripts.parse_pnt import runParsePNT
+
+# rich formatting
+from cyg_to_ign.Scripts.rich_formatting import display_trs_summary
 
 console = Console()
-
-# ---------------------------
-# Command: parse-trs
-# ---------------------------
-def parse_trs(input_file: str, output_file: str):
-    """
-    Parse TRS data from Cygnet and convert to Ignition format.
-    """
-    console.print(Panel(f"[bold green]Parsing TRS[/bold green]\nInput: {input_file}\nOutput: {output_file}"))
-    
-    # TODO: Add your conversion logic here
-    # Example placeholder:
-    console.print("[yellow]Processing TRS tags...[/yellow]")
-    
-    # Simulate summary table
-    table = Table(title="TRS Conversion Summary")
-    table.add_column("Tag", style="cyan")
-    table.add_column("Status", style="green")
-    table.add_row("TRS_TAG_001", "Success")
-    table.add_row("TRS_TAG_002", "Failed")
-    console.print(table)
-
-    console.print("[bold blue]TRS parsing complete![/bold blue]")
-
-# ---------------------------
-# Command: parse-pnt
-# ---------------------------
-def parse_pnt(input_file: str, output_file: str):
-    """
-    Parse PNT data from Cygnet and convert to Ignition format.
-    """
-    console.print(Panel(f"[bold green]Parsing PNT[/bold green]\nInput: {input_file}\nOutput: {output_file}"))
-    
-    # TODO: Add your conversion logic here
-    console.print("[yellow]Processing PNT points...[/yellow]")
-    console.print("[bold blue]PNT parsing complete![/bold blue]")
-
-# ---------------------------
-# Command: parse-fac
-# ---------------------------
-def parse_fac(input_file: str, output_file: str):
-    """
-    Parse FAC data from Cygnet and convert to Ignition format.
-    """
-    console.print(Panel(f"[bold green]Parsing FAC[/bold green]\nInput: {input_file}\nOutput: {output_file}"))
-    
-    # TODO: Add your conversion logic here
-    console.print("[yellow]Processing FAC facilities...[/yellow]")
-    console.print("[bold blue]FAC parsing complete![/bold blue]")
 
 # ---------------------------
 # Endless Loop:
@@ -91,23 +52,39 @@ def main():
             continue
 
         if user_input.lower() == "test":
-            console.print("yo you are testing dude! keep it up man.")
+            test = getRootFolder()
+            console.print("test: ", test)
             continue
         
+        # =============================================================
         # add in your other user_input commands
         # =============================================================
         if user_input.lower() == "parse-trs":
             console.print("Within the 'cygnet_input' folder ...")
+            console.print("DO NOT TYPE '.csv', just the name of file")
             csv_name = Prompt.ask("Type the filename of the cygnet trs CSV file").strip()
-            
+            trs_summary = runParseTRS(csv_name)
+            display_trs_summary(trs_summary)
+            continue
+
+        if user_input.lower() == "parse-pnt":
+            console.print("Within the 'cygnet_input' folder ...")
+            console.print("DO NOT TYPE '.csv', just the name of file")
+            csv_name = Prompt.ask("Type the filename of the cygnet trs CSV file").strip()
+            pnt_summary = runParsePNT(csv_name)
+            console.print(pnt_summary)
             continue
         
+        if user_input.lower() == "analyze-trs_pnt":
+
+            continue
+
         else:
             console.print(f"[red]Unknown command: [/red] {user_input!r}\n")
 
     console.print(Rule(style="dim"))
     console.print(
-        Panel.fit("[bold green]take care\n          o7 [/bold green]")
+        Panel.fit("[bold green]take care\n\n          o7 [/bold green]")
     )
 
 # ---------------------------

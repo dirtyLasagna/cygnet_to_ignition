@@ -13,8 +13,9 @@ git save workflow:
     commands:           git status
                         git add *
                         git commit -m "End of day: <describe changes>"
+                        git pull origin main    # skip if working alone
                         git push origin main
 
 git latest changes:
     directory:          root
-    command:            git pull origin main
+    command:            git pull origin main    # sync with remote

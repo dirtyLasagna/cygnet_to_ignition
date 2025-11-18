@@ -1,0 +1,40 @@
+Project Summary:
+Name: cygnet_to_ignition
+purpose: A python-based CLI tool for converting cygnet scada data into ignition-compatible formats.
+Current Focus: 
+
+Implementing parse-trs functionality for processing TRS CSV Files.
+
+cygnet_To_ignition/        # root folder 
+│
+├── main.py                # Entry point, launches interactive CLI
+├── pyproject.toml         # uv project configuration
+├── uv.lock                # uv dependency lock file
+├── .gitignore             # Git ignore rules
+├── README.md              # Project documentation
+│
+├── analytical_output/     # Stores processed output files
+├── cyg_to_ign/            # Core logic and scripts
+│   └── Scripts/
+│       └── parse_trs.py   # Contains runParseTRS() function
+|       └── __init__.py    # Contains initialization for packaging (WIP)
+|       └── x.py           # add more scripts as necessary going forward here
+│
+└── cygnet_inputfiles/     # Stores input CSV files from Cygnet to be analyized
+
+Current CLI Behavior:
+Runs an interactive loop using Rich:
+    * Commands:
+        - help 
+        - test
+        - parse-trs 
+            -- Prompts for TRS CSV filename and calls runParseTRS()
+        - exit, quit, q 
+            -- exits the CLI
+    * Styled output using Rich (Prompt, Panel, Rule)
+
+Tech Stack:
+* Python
+* Rich for CLI styling
+* uv for dependency management
+* Git for version control and remote saving
