@@ -1,26 +1,33 @@
 Project Summary:
 Name: cygnet_to_ignition
 purpose: A python-based CLI tool for converting cygnet scada data into ignition-compatible formats.
-Current Focus: 
 
-Implementing parse-trs functionality for processing TRS CSV Files.
-
-cygnet_To_ignition/        # root folder 
+CYGNET_TO_IGNITION/
 │
-├── main.py                # Entry point, launches interactive CLI
-├── pyproject.toml         # uv project configuration
-├── uv.lock                # uv dependency lock file
-├── .gitignore             # Git ignore rules
-├── README.md              # Project documentation
-│
-├── analytical_output/     # Stores processed output files
-├── cyg_to_ign/            # Core logic and scripts
+├── .venv/                   # Python virtual environment
+├── analytical_output/       # Stores processed output files
+├── cyg_to_ign/
+│   ├── Notes/
+│   │   ├── copilot_summary.txt
+│   │   └── start_up.txt
 │   └── Scripts/
-│       └── parse_trs.py   # Contains runParseTRS() function
-|       └── __init__.py    # Contains initialization for packaging (WIP)
-|       └── x.py           # add more scripts as necessary going forward here
-│
-└── cygnet_inputfiles/     # Stores input CSV files from Cygnet to be analyized
+│       ├── __init__.py
+│       ├── common.py            # Common utility functions (e.g., getRootFolder, getColumnHeaders)
+│       ├── parse_trs.py         # TRS file parsing, summary, and analysis
+│       ├── parse_pnt.py         # PNT file parsing, summary, and analysis
+│       ├── readCygnetFile.py    # (legacy or alternate file reader)
+│       ├── rich_formatting.py   # Rich CLI formatting for summary output
+│       └── tag_structure_analysis.py # (future: advanced tag analysis)
+├── cygnet_input/             # Input CSV files (PNT and TRS exports)
+│   ├── PntExport_110425.csv
+│   └── TEXAS_TRS.csv
+├── cygnet_test_data/         # (future: test data)
+├── ignition_format/          # (future: output format templates)
+├── main.py                   # Entry point, launches interactive CLI
+├── README.md                 # Project documentation
+├── pyproject.toml            # Dependency management (uv)
+├── uv.lock                   # Dependency lock file
+├── .gitignore                # Git ignore rules
 
 Current CLI Behavior:
 Runs an interactive loop using Rich:
@@ -38,3 +45,76 @@ Tech Stack:
 * Rich for CLI styling
 * uv for dependency management
 * Git for version control and remote saving
+
+Key Scripts & Their Roles
+
+main.py:
+- CLI entry point, interactive loop, command routing.
+- Calls parsing and formatting functions.
+
+common.py:
+- Shared utility functions (e.g., getRootFolder, getColumnHeaders).
+
+parse_trs.py:
+- Reads TRS files, profiles columns, analyzes patterns (especially ~UDCALL).
+- Returns a summary dictionary for Rich formatting.
+
+parse_pnt.py:
+- Reads PNT exports, profiles columns, handles UDC mapping.
+- Returns a summary dictionary for Rich formatting.
+
+rich_formatting.py:
+- Contains functions like display_trs_summary and display_pnt_summary.
+- Uses Rich to format output: panels, tables, dynamic column layouts.
+
+Recent Changes & Improvements:
+
+TRS Analysis
+    Profiles columns for:
+        - Total rows
+        - Headers 
+        - Non-empty counts
+        - Percentages
+        - Unique counts
+        - Empty columns 
+        - Missing values
+
+    Special focus on ~UDCALL table:
+        - Duplicate descriptions and associated ENTRYs.
+        - Prefix grouping for subsystem analysis.
+        - Mapping structure {ENTRY: DESC} for tag reference.
+
+PNT Analysis:
+    Profiles columns for:
+        - Total rows
+        - Fully populated columns
+        - Missing values 
+        - Empty categories
+        - Unique UDC 
+        - Description counts
+
+    Improved missing value logic:
+        - Converts empty strings and whitespace to pd.NA for accurate missing value detection.
+
+    Separates columns into:
+        - Fully populated, partially missing, and fully empty.
+
+    Adds logic to find Unaccounted Columns:
+        - Compares original headers to all analyzed lists to find any columns not categorized.
+
+Rich CLI Formatting
+    - Modular functions for displaying summaries.
+    - Dynamic column distribution for long lists (e.g., fully populated columns, empty categories).
+    - Displays counts for each section.
+    - Uses Rich tables and panels for compact, readable output.
+
+Next Challenge: Combining TRS and PNT summaries
+    Goal: Cross-reference TRS and PNT summaries
+        - Match UDCs (uniformdatacode in PNT) to ENTRYs in TRS (~UDCALL).
+        - Highlight matches, missing mappings, and extra entries.
+        - Analyze naming patterns and subsystem groupings for tag design like prefixes for example
+    Preparation:
+        - Both TRS and PNT summaries are now strucutred dictionaries
+        - Ready to implement a function to combine and compare these summaries for actionable results. 
+            - the CLI tool may need to generate the summary variables first in order to perform this. 
+            - might need to check if the PNT and TRS analysis has already stored the summaries ready for the more complex analysis involving both. 

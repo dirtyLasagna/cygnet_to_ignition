@@ -1,0 +1,13 @@
+analytical_output                   = folder for final dictionaries
+    -> summaries.json               - final summaries, small dictionaries
+
+working                             = intermediate artifacts for fast analysis
+    -> working.json                 - small index + provenance of working datasets
+    -> udc_working_set.parquet      - normalized TRS~UDCALL n PNT UDC join
+    -> pnt_index.parquet            - indexed PNT columns (udc, fac, desc, etc.)
+    -> trs_udcall.parquet           - normalized TRS UDCALL (ENTRY, DESC)
+    -> fac_index.parquet            - normalized FAC IDs and attributes
+
+config                              = optional mappings, rule sets
+    -> fac_map_rules.json           - rules
+

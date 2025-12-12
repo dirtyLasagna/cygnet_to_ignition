@@ -13,12 +13,69 @@ def getColumnHeaders(file_path: str) -> list:
     return headers
 
 def validatePNTFile(file_path: str) -> bool:
+    # Check if file exists
+    if not os.path.isfile(file_path):
+        return False
+    
+    # Read headers
+    headers = getColumnHeaders(file_path)
 
-    return
+    # Required columns
+    required_cols = ['uniformdatacode', 'description', 'pointdatatype']
+    missing_cols = [ col for col in required_cols if col not in headers ]
+
+    if missing_cols:
+        print(f"Missing required columns: {', '.join(missing_cols)}")
+        return False
+    
+    return True
 
 def profilePNTFile(file_path: str) -> dict: # row count, missing values, duplicates
+    df = pd.read_csv(file_path)
+    df.replace(r'^\s*$', pd.NA, regex=True, inplace=True)
+    total_rows = len(df)
 
-    return
+    full_categories = []
+    missing_values = {}
+    empty_categories = []
+
+    for col in df.columns:
+        missing_count = df[col].isnull().sum()
+        missing_percent = round((missing_count / total_rows) * 100, 2)
+
+        # if column has 0 percent missing, separate into "missing"
+        if missing_percent < 100 and missing_percent > 0:
+            missing_values[col] = {
+            "count": int(missing_count),
+            "percent": str(missing_percent) + "%" 
+        }
+            continue
+        
+        # empty b/c missing count equals total count
+        elif missing_count == total_rows:
+            empty_categories.append(str(col))
+            continue
+
+        # full values
+        elif missing_percent == 0:
+            full_categories.append(str(col))
+
+    # check for unaccounted columns aka VALIDATE ANALYSIS
+    headers = getColumnHeaders(file_path)
+    accounted = set(full_categories) | set(missing_values.keys()) | set(empty_categories)
+    unaccounted = [ col for col in headers if col not in accounted ]
+
+    summary = {
+        "Total Rows": total_rows,
+        "Full Rows": full_categories,
+        "Missing Values": missing_values,
+        "Empty Categories": empty_categories,
+        "Unique UDC Count": df['uniformdatacode'].nunique(),
+        "Unique Desc Count": df['description'].nunique(),
+        "Unaccounted Columns": unaccounted
+    }
+
+    return summary
 
 def buildPNTMapping(file_path: str) -> dict: # UDC -> TagName
 
@@ -45,4 +102,39 @@ def runParsePNT(file_name: str):
     
     # Read headers 
     headers = getColumnHeaders(file_path)
-    return headers
+    
+    # test
+    test = profilePNTFile(file_path)
+
+    # row count, get list of unique 'uniformdatacode' columns
+
+    # mapping preparation
+
+    # duplicate detection
+
+    # subsystem grouping
+
+    # cross-reference w/ TRS 
+        # compare udc's in PNT to ENTRY's in TRS w/ ~UDCALL
+        # highlight:
+            # matches
+            # missing mappings
+            # extra UDCs not found in TRS
+    
+    # Human-Readable Mapping
+        # UDC | Tagname | TRS Description
+
+    # Pattern Analysis
+        # Detect Common naming conventions in PNT tags
+        # Compare with TRS prefixes for consistency
+    
+    # Rich CLI Output
+        # Show summary tables for:
+            # Match rate
+            # Missing Mappings
+            # Duplicate issues
+    
+    # Export Mapping:
+        # Allow saving the mapping as CSV or JSON for use
+
+    return test
