@@ -1,0 +1,9 @@
+{
+  "parser_filepaths": {
+    "base-path": "C:\\Users\\graham.lasseigne\\_development\\cygnet_to_ignition\\cygnet_input",
+    "extension": ".csv",
+    "parse-trs": "TEXAS_TRS",
+    "parse-pnt": "",
+    "parse-fac": ""
+  }
+}
