@@ -146,3 +146,86 @@ def display_pnt_summary(summary):
     console.print(Panel.fit(table, title="Columns with Missing Values", border_style="magenta"))
 
     return
+
+def display_fac_summary(summary):
+
+    # Main Panel
+    console.print( Panel( 
+        "[bold cyan]FAC File Analysis Summary[/bold cyan]", border_style="blue", title_align="left"
+    ))
+
+    
+    total_count_column = summary['Column Summary']['Total Columns']
+    fullyPopulatedPercentage = round(float(summary['Column Summary']['Fully Populated']) / float(total_count_column) * 100, 2) 
+    fullyEmptyPercentage = round(float(summary['Column Summary']['Fully Empty']) / float(total_count_column) * 100, 2)
+    partiallyFilledPercentage = round(float(summary['Column Summary']['Partially Filled']) / float(total_count_column) * 100, 2)
+
+    # General Info & Column Summary horizontally
+    general_info = (
+        f"[bold]Total Rows:[/bold] {summary['Total Rows']}\n"
+        f"[bold]Total Columns:[/bold] {total_count_column}\n"
+    )
+    
+    col_summary = (
+        f"[bold]Fully Populated:[/bold] \t {summary['Column Summary']['Fully Populated']} / {total_count_column} - {fullyPopulatedPercentage} %\n"
+        f"[bold]Fully Empty:[/bold] \t\t {summary['Column Summary']['Fully Empty']} / {total_count_column} - {fullyEmptyPercentage} %\n"
+        f"[bold]Partially Filled:[/bold] \t {summary['Column Summary']['Partially Filled']} / {total_count_column} - {partiallyFilledPercentage} %\n"
+    )
+    
+    console.print(Columns([
+        Panel(general_info, title="General Info", border_style="blue"),
+        Panel(col_summary, title="Column Summary", border_style="cyan", width=50)
+    ]))
+
+    # Key Column Statistics Table
+    key_table = Table(show_lines=True)
+    key_table.add_column("Column", style="bold green")
+    key_table.add_column("Unique Values", justify="center")
+    key_table.add_column("Non-Empty", justify="center")
+    key_table.add_column("Filled %", justify="center")
+    
+    for col, stats in summary['Key Column Statistics'].items():
+        key_table.add_row(
+            col,
+            str(stats['Unique Values']),
+            stats['Non-Empty'],
+            stats['Filled Percent']
+        )
+    
+    console.print(Panel(key_table, title="Key Columns Analysis", border_style="green"))
+
+    # Full Columns (100% populated)
+    if summary['Full Columns']:
+        n_cols = min(5, max(1, len(summary['Full Columns']) // 10))
+        full_table = display_list_as_columns("Fully Populated Columns", summary['Full Columns'], n_cols)
+        #console.print(full_table)
+    else:
+        console.print(Panel("[yellow]No fully populated columns found[/yellow]", title="Fully Populated Columns", border_style="green"))
+
+    # Empty Columns
+    if summary['Empty Columns']:
+        empty_list = summary['Empty Columns']
+        empty_text = "\n".join(empty_list) if empty_list else "None"
+        #console.print(Panel(empty_text, title="100% Empty Columns", border_style="purple"))
+
+    # Partially Empty Columns
+    if summary['Missing Values']:
+        mixed_list = summary['Missing Values']
+        mixed_text = "\n".join(mixed_list) if mixed_list else "None"
+        #console.print(Panel(mixed_text, title="Partially Empty Columns", border_style="magenta"))
+
+    # Missing Values Table (only columns with missing data)
+    if summary['Missing Values']:
+        missing_table = Table(show_lines=True)
+        missing_table.add_column("Column", style="bold yellow")
+        missing_table.add_column("Missing Count", justify="center")
+        missing_table.add_column("Percent Missing", justify="center")
+        
+        for col, vals in summary['Missing Values'].items():
+            missing_table.add_row(col, str(vals['count']), vals['percent'])
+        
+        console.print(Panel(missing_table, title="Columns with Missing Values", border_style="magenta"))
+    else:
+        console.print(Panel("[green]No missing values found - all columns fully populated![/green]", title="Missing Values", border_style="green"))
+
+    return 

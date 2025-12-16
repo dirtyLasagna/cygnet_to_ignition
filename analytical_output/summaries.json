@@ -62,8 +62,8 @@
       "Distinct DESC": 3073
     },
     "_meta": {
-      "last_updated": "2025-12-15T14:01:45",
-      "unix_ts": 1765828905,
+      "last_updated": "2025-12-16T12:15:10",
+      "unix_ts": 1765908910,
       "source": "trs_summary",
       "filepath": "N/A"
     }
@@ -391,13 +391,1159 @@
       "cfgbit13gnsid"
     ],
     "_meta": {
-      "last_updated": "2025-12-12T14:43:10",
-      "unix_ts": 1765572190,
+      "last_updated": "2025-12-16T12:15:21",
+      "unix_ts": 1765908921,
       "source": "pnt_summary",
       "filepath": "N/A"
     }
   },
-  "fac_summary": {},
+  "fac_summary": {
+    "Total Rows": 5620,
+    "Headers": [
+      "site",
+      "service",
+      "id",
+      "is_active",
+      "type",
+      "desc",
+      "category",
+      "security_app",
+      "info0",
+      "info1",
+      "attr0",
+      "attr1",
+      "attr2",
+      "attr3",
+      "attr4",
+      "attr5",
+      "attr6",
+      "attr7",
+      "attr8",
+      "attr9",
+      "attr10",
+      "attr11",
+      "attr12",
+      "attr13",
+      "attr14",
+      "attr15",
+      "attr16",
+      "attr17",
+      "attr18",
+      "attr19",
+      "attr20",
+      "attr21",
+      "attr22",
+      "attr23",
+      "attr24",
+      "attr25",
+      "attr26",
+      "attr27",
+      "attr28",
+      "attr29",
+      "attr30",
+      "attr31",
+      "attr32",
+      "attr33",
+      "attr34",
+      "attr35",
+      "attr36",
+      "attr37",
+      "attr38",
+      "attr39",
+      "comment",
+      "table0",
+      "table1",
+      "table2",
+      "table3",
+      "table4",
+      "table5",
+      "table6",
+      "table7",
+      "table8",
+      "table9",
+      "table10",
+      "table11",
+      "table12",
+      "table13",
+      "table14",
+      "table15",
+      "table16",
+      "table17",
+      "table18",
+      "table19",
+      "table20",
+      "table21",
+      "table22",
+      "table23",
+      "table24",
+      "table25",
+      "table26",
+      "table27",
+      "table28",
+      "table29",
+      "table30",
+      "table31",
+      "table32",
+      "table33",
+      "table34",
+      "table35",
+      "table36",
+      "table37",
+      "table38",
+      "table39",
+      "table40",
+      "table41",
+      "table42",
+      "table43",
+      "table44",
+      "table45",
+      "table46",
+      "table47",
+      "table48",
+      "table49",
+      "table50",
+      "table51",
+      "table52",
+      "table53",
+      "table54",
+      "table55",
+      "table56",
+      "table57",
+      "table58",
+      "table59",
+      "yes_no0",
+      "yes_no1",
+      "yes_no2",
+      "yes_no3",
+      "yes_no4",
+      "yes_no5",
+      "yes_no6",
+      "yes_no7",
+      "yes_no8",
+      "yes_no9",
+      "yes_no10",
+      "yes_no11",
+      "yes_no12",
+      "yes_no13",
+      "yes_no14",
+      "yes_no15",
+      "yes_no16",
+      "yes_no17",
+      "yes_no18",
+      "yes_no19"
+    ],
+    "Non Empty Counts Per Column": {
+      "site": "5620/5620",
+      "service": "5620/5620",
+      "id": "5620/5620",
+      "is_active": "5620/5620",
+      "type": "5408/5620",
+      "desc": "5508/5620",
+      "category": "5620/5620",
+      "security_app": "0/5620",
+      "info0": "1149/5620",
+      "info1": "3319/5620",
+      "attr0": "1792/5620",
+      "attr1": "27/5620",
+      "attr2": "3794/5620",
+      "attr3": "593/5620",
+      "attr4": "0/5620",
+      "attr5": "0/5620",
+      "attr6": "0/5620",
+      "attr7": "123/5620",
+      "attr8": "0/5620",
+      "attr9": "0/5620",
+      "attr10": "0/5620",
+      "attr11": "0/5620",
+      "attr12": "188/5620",
+      "attr13": "13/5620",
+      "attr14": "0/5620",
+      "attr15": "0/5620",
+      "attr16": "0/5620",
+      "attr17": "0/5620",
+      "attr18": "0/5620",
+      "attr19": "0/5620",
+      "attr20": "0/5620",
+      "attr21": "0/5620",
+      "attr22": "0/5620",
+      "attr23": "0/5620",
+      "attr24": "0/5620",
+      "attr25": "108/5620",
+      "attr26": "108/5620",
+      "attr27": "2201/5620",
+      "attr28": "2972/5620",
+      "attr29": "3/5620",
+      "attr30": "0/5620",
+      "attr31": "0/5620",
+      "attr32": "0/5620",
+      "attr33": "0/5620",
+      "attr34": "0/5620",
+      "attr35": "0/5620",
+      "attr36": "0/5620",
+      "attr37": "0/5620",
+      "attr38": "0/5620",
+      "attr39": "0/5620",
+      "comment": "0/5620",
+      "table0": "4116/5620",
+      "table1": "3777/5620",
+      "table2": "4427/5620",
+      "table3": "504/5620",
+      "table4": "3858/5620",
+      "table5": "3624/5620",
+      "table6": "2285/5620",
+      "table7": "3518/5620",
+      "table8": "23/5620",
+      "table9": "0/5620",
+      "table10": "1166/5620",
+      "table11": "146/5620",
+      "table12": "792/5620",
+      "table13": "69/5620",
+      "table14": "113/5620",
+      "table15": "25/5620",
+      "table16": "363/5620",
+      "table17": "0/5620",
+      "table18": "0/5620",
+      "table19": "0/5620",
+      "table20": "0/5620",
+      "table21": "0/5620",
+      "table22": "0/5620",
+      "table23": "0/5620",
+      "table24": "0/5620",
+      "table25": "254/5620",
+      "table26": "0/5620",
+      "table27": "0/5620",
+      "table28": "0/5620",
+      "table29": "0/5620",
+      "table30": "0/5620",
+      "table31": "0/5620",
+      "table32": "0/5620",
+      "table33": "0/5620",
+      "table34": "0/5620",
+      "table35": "0/5620",
+      "table36": "0/5620",
+      "table37": "0/5620",
+      "table38": "0/5620",
+      "table39": "0/5620",
+      "table40": "0/5620",
+      "table41": "0/5620",
+      "table42": "0/5620",
+      "table43": "0/5620",
+      "table44": "0/5620",
+      "table45": "0/5620",
+      "table46": "0/5620",
+      "table47": "0/5620",
+      "table48": "0/5620",
+      "table49": "0/5620",
+      "table50": "0/5620",
+      "table51": "0/5620",
+      "table52": "0/5620",
+      "table53": "0/5620",
+      "table54": "0/5620",
+      "table55": "0/5620",
+      "table56": "0/5620",
+      "table57": "0/5620",
+      "table58": "0/5620",
+      "table59": "0/5620",
+      "yes_no0": "5620/5620",
+      "yes_no1": "5620/5620",
+      "yes_no2": "5620/5620",
+      "yes_no3": "5620/5620",
+      "yes_no4": "5620/5620",
+      "yes_no5": "5620/5620",
+      "yes_no6": "5620/5620",
+      "yes_no7": "5620/5620",
+      "yes_no8": "5620/5620",
+      "yes_no9": "5620/5620",
+      "yes_no10": "5620/5620",
+      "yes_no11": "5620/5620",
+      "yes_no12": "5620/5620",
+      "yes_no13": "5620/5620",
+      "yes_no14": "5620/5620",
+      "yes_no15": "5620/5620",
+      "yes_no16": "5620/5620",
+      "yes_no17": "5620/5620",
+      "yes_no18": "5620/5620",
+      "yes_no19": "5620/5620"
+    },
+    "Percentage Filled": {
+      "site": "100.00%",
+      "service": "100.00%",
+      "id": "100.00%",
+      "is_active": "100.00%",
+      "type": "96.23%",
+      "desc": "98.01%",
+      "category": "100.00%",
+      "security_app": "0.00%",
+      "info0": "20.44%",
+      "info1": "59.06%",
+      "attr0": "31.89%",
+      "attr1": "0.48%",
+      "attr2": "67.51%",
+      "attr3": "10.55%",
+      "attr4": "0.00%",
+      "attr5": "0.00%",
+      "attr6": "0.00%",
+      "attr7": "2.19%",
+      "attr8": "0.00%",
+      "attr9": "0.00%",
+      "attr10": "0.00%",
+      "attr11": "0.00%",
+      "attr12": "3.35%",
+      "attr13": "0.23%",
+      "attr14": "0.00%",
+      "attr15": "0.00%",
+      "attr16": "0.00%",
+      "attr17": "0.00%",
+      "attr18": "0.00%",
+      "attr19": "0.00%",
+      "attr20": "0.00%",
+      "attr21": "0.00%",
+      "attr22": "0.00%",
+      "attr23": "0.00%",
+      "attr24": "0.00%",
+      "attr25": "1.92%",
+      "attr26": "1.92%",
+      "attr27": "39.16%",
+      "attr28": "52.88%",
+      "attr29": "0.05%",
+      "attr30": "0.00%",
+      "attr31": "0.00%",
+      "attr32": "0.00%",
+      "attr33": "0.00%",
+      "attr34": "0.00%",
+      "attr35": "0.00%",
+      "attr36": "0.00%",
+      "attr37": "0.00%",
+      "attr38": "0.00%",
+      "attr39": "0.00%",
+      "comment": "0.00%",
+      "table0": "73.24%",
+      "table1": "67.21%",
+      "table2": "78.77%",
+      "table3": "8.97%",
+      "table4": "68.65%",
+      "table5": "64.48%",
+      "table6": "40.66%",
+      "table7": "62.60%",
+      "table8": "0.41%",
+      "table9": "0.00%",
+      "table10": "20.75%",
+      "table11": "2.60%",
+      "table12": "14.09%",
+      "table13": "1.23%",
+      "table14": "2.01%",
+      "table15": "0.44%",
+      "table16": "6.46%",
+      "table17": "0.00%",
+      "table18": "0.00%",
+      "table19": "0.00%",
+      "table20": "0.00%",
+      "table21": "0.00%",
+      "table22": "0.00%",
+      "table23": "0.00%",
+      "table24": "0.00%",
+      "table25": "4.52%",
+      "table26": "0.00%",
+      "table27": "0.00%",
+      "table28": "0.00%",
+      "table29": "0.00%",
+      "table30": "0.00%",
+      "table31": "0.00%",
+      "table32": "0.00%",
+      "table33": "0.00%",
+      "table34": "0.00%",
+      "table35": "0.00%",
+      "table36": "0.00%",
+      "table37": "0.00%",
+      "table38": "0.00%",
+      "table39": "0.00%",
+      "table40": "0.00%",
+      "table41": "0.00%",
+      "table42": "0.00%",
+      "table43": "0.00%",
+      "table44": "0.00%",
+      "table45": "0.00%",
+      "table46": "0.00%",
+      "table47": "0.00%",
+      "table48": "0.00%",
+      "table49": "0.00%",
+      "table50": "0.00%",
+      "table51": "0.00%",
+      "table52": "0.00%",
+      "table53": "0.00%",
+      "table54": "0.00%",
+      "table55": "0.00%",
+      "table56": "0.00%",
+      "table57": "0.00%",
+      "table58": "0.00%",
+      "table59": "0.00%",
+      "yes_no0": "100.00%",
+      "yes_no1": "100.00%",
+      "yes_no2": "100.00%",
+      "yes_no3": "100.00%",
+      "yes_no4": "100.00%",
+      "yes_no5": "100.00%",
+      "yes_no6": "100.00%",
+      "yes_no7": "100.00%",
+      "yes_no8": "100.00%",
+      "yes_no9": "100.00%",
+      "yes_no10": "100.00%",
+      "yes_no11": "100.00%",
+      "yes_no12": "100.00%",
+      "yes_no13": "100.00%",
+      "yes_no14": "100.00%",
+      "yes_no15": "100.00%",
+      "yes_no16": "100.00%",
+      "yes_no17": "100.00%",
+      "yes_no18": "100.00%",
+      "yes_no19": "100.00%"
+    },
+    "Unique Counts": {
+      "site": 1,
+      "service": 1,
+      "id": 5620,
+      "is_active": 2,
+      "type": 19,
+      "desc": 5175,
+      "category": 5,
+      "security_app": 0,
+      "info0": 612,
+      "info1": 7,
+      "attr0": 292,
+      "attr1": 22,
+      "attr2": 164,
+      "attr3": 71,
+      "attr4": 0,
+      "attr5": 0,
+      "attr6": 0,
+      "attr7": 109,
+      "attr8": 0,
+      "attr9": 0,
+      "attr10": 0,
+      "attr11": 0,
+      "attr12": 4,
+      "attr13": 10,
+      "attr14": 0,
+      "attr15": 0,
+      "attr16": 0,
+      "attr17": 0,
+      "attr18": 0,
+      "attr19": 0,
+      "attr20": 0,
+      "attr21": 0,
+      "attr22": 0,
+      "attr23": 0,
+      "attr24": 0,
+      "attr25": 105,
+      "attr26": 104,
+      "attr27": 472,
+      "attr28": 54,
+      "attr29": 1,
+      "attr30": 0,
+      "attr31": 0,
+      "attr32": 0,
+      "attr33": 0,
+      "attr34": 0,
+      "attr35": 0,
+      "attr36": 0,
+      "attr37": 0,
+      "attr38": 0,
+      "attr39": 0,
+      "comment": 0,
+      "table0": 1,
+      "table1": 5,
+      "table2": 13,
+      "table3": 6,
+      "table4": 136,
+      "table5": 4,
+      "table6": 22,
+      "table7": 3,
+      "table8": 4,
+      "table9": 0,
+      "table10": 395,
+      "table11": 14,
+      "table12": 60,
+      "table13": 1,
+      "table14": 16,
+      "table15": 1,
+      "table16": 17,
+      "table17": 0,
+      "table18": 0,
+      "table19": 0,
+      "table20": 0,
+      "table21": 0,
+      "table22": 0,
+      "table23": 0,
+      "table24": 0,
+      "table25": 11,
+      "table26": 0,
+      "table27": 0,
+      "table28": 0,
+      "table29": 0,
+      "table30": 0,
+      "table31": 0,
+      "table32": 0,
+      "table33": 0,
+      "table34": 0,
+      "table35": 0,
+      "table36": 0,
+      "table37": 0,
+      "table38": 0,
+      "table39": 0,
+      "table40": 0,
+      "table41": 0,
+      "table42": 0,
+      "table43": 0,
+      "table44": 0,
+      "table45": 0,
+      "table46": 0,
+      "table47": 0,
+      "table48": 0,
+      "table49": 0,
+      "table50": 0,
+      "table51": 0,
+      "table52": 0,
+      "table53": 0,
+      "table54": 0,
+      "table55": 0,
+      "table56": 0,
+      "table57": 0,
+      "table58": 0,
+      "table59": 0,
+      "yes_no0": 2,
+      "yes_no1": 2,
+      "yes_no2": 2,
+      "yes_no3": 2,
+      "yes_no4": 2,
+      "yes_no5": 1,
+      "yes_no6": 2,
+      "yes_no7": 1,
+      "yes_no8": 1,
+      "yes_no9": 2,
+      "yes_no10": 2,
+      "yes_no11": 2,
+      "yes_no12": 2,
+      "yes_no13": 1,
+      "yes_no14": 1,
+      "yes_no15": 1,
+      "yes_no16": 1,
+      "yes_no17": 1,
+      "yes_no18": 1,
+      "yes_no19": 1
+    },
+    "Missing Values": {
+      "type": {
+        "count": 212,
+        "percent": "3.77%"
+      },
+      "desc": {
+        "count": 112,
+        "percent": "1.99%"
+      },
+      "security_app": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "info0": {
+        "count": 4471,
+        "percent": "79.56%"
+      },
+      "info1": {
+        "count": 2301,
+        "percent": "40.94%"
+      },
+      "attr0": {
+        "count": 3828,
+        "percent": "68.11%"
+      },
+      "attr1": {
+        "count": 5593,
+        "percent": "99.52%"
+      },
+      "attr2": {
+        "count": 1826,
+        "percent": "32.49%"
+      },
+      "attr3": {
+        "count": 5027,
+        "percent": "89.45%"
+      },
+      "attr4": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr5": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr6": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr7": {
+        "count": 5497,
+        "percent": "97.81%"
+      },
+      "attr8": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr9": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr10": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr11": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr12": {
+        "count": 5432,
+        "percent": "96.65%"
+      },
+      "attr13": {
+        "count": 5607,
+        "percent": "99.77%"
+      },
+      "attr14": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr15": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr16": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr17": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr18": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr19": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr20": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr21": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr22": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr23": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr24": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr25": {
+        "count": 5512,
+        "percent": "98.08%"
+      },
+      "attr26": {
+        "count": 5512,
+        "percent": "98.08%"
+      },
+      "attr27": {
+        "count": 3419,
+        "percent": "60.84%"
+      },
+      "attr28": {
+        "count": 2648,
+        "percent": "47.12%"
+      },
+      "attr29": {
+        "count": 5617,
+        "percent": "99.95%"
+      },
+      "attr30": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr31": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr32": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr33": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr34": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr35": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr36": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr37": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr38": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "attr39": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "comment": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table0": {
+        "count": 1504,
+        "percent": "26.76%"
+      },
+      "table1": {
+        "count": 1843,
+        "percent": "32.79%"
+      },
+      "table2": {
+        "count": 1193,
+        "percent": "21.23%"
+      },
+      "table3": {
+        "count": 5116,
+        "percent": "91.03%"
+      },
+      "table4": {
+        "count": 1762,
+        "percent": "31.35%"
+      },
+      "table5": {
+        "count": 1996,
+        "percent": "35.52%"
+      },
+      "table6": {
+        "count": 3335,
+        "percent": "59.34%"
+      },
+      "table7": {
+        "count": 2102,
+        "percent": "37.40%"
+      },
+      "table8": {
+        "count": 5597,
+        "percent": "99.59%"
+      },
+      "table9": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table10": {
+        "count": 4454,
+        "percent": "79.25%"
+      },
+      "table11": {
+        "count": 5474,
+        "percent": "97.40%"
+      },
+      "table12": {
+        "count": 4828,
+        "percent": "85.91%"
+      },
+      "table13": {
+        "count": 5551,
+        "percent": "98.77%"
+      },
+      "table14": {
+        "count": 5507,
+        "percent": "97.99%"
+      },
+      "table15": {
+        "count": 5595,
+        "percent": "99.56%"
+      },
+      "table16": {
+        "count": 5257,
+        "percent": "93.54%"
+      },
+      "table17": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table18": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table19": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table20": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table21": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table22": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table23": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table24": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table25": {
+        "count": 5366,
+        "percent": "95.48%"
+      },
+      "table26": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table27": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table28": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table29": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table30": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table31": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table32": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table33": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table34": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table35": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table36": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table37": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table38": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table39": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table40": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table41": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table42": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table43": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table44": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table45": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table46": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table47": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table48": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table49": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table50": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table51": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table52": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table53": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table54": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table55": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table56": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table57": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table58": {
+        "count": 5620,
+        "percent": "100.00%"
+      },
+      "table59": {
+        "count": 5620,
+        "percent": "100.00%"
+      }
+    },
+    "Full Columns": [
+      "site",
+      "service",
+      "id",
+      "is_active",
+      "category",
+      "yes_no0",
+      "yes_no1",
+      "yes_no2",
+      "yes_no3",
+      "yes_no4",
+      "yes_no5",
+      "yes_no6",
+      "yes_no7",
+      "yes_no8",
+      "yes_no9",
+      "yes_no10",
+      "yes_no11",
+      "yes_no12",
+      "yes_no13",
+      "yes_no14",
+      "yes_no15",
+      "yes_no16",
+      "yes_no17",
+      "yes_no18",
+      "yes_no19"
+    ],
+    "Empty Columns": [
+      "security_app: Unused (100% empty)",
+      "attr4: Unused (100% empty)",
+      "attr5: Unused (100% empty)",
+      "attr6: Unused (100% empty)",
+      "attr8: Unused (100% empty)",
+      "attr9: Unused (100% empty)",
+      "attr10: Unused (100% empty)",
+      "attr11: Unused (100% empty)",
+      "attr14: Unused (100% empty)",
+      "attr15: Unused (100% empty)",
+      "attr16: Unused (100% empty)",
+      "attr17: Unused (100% empty)",
+      "attr18: Unused (100% empty)",
+      "attr19: Unused (100% empty)",
+      "attr20: Unused (100% empty)",
+      "attr21: Unused (100% empty)",
+      "attr22: Unused (100% empty)",
+      "attr23: Unused (100% empty)",
+      "attr24: Unused (100% empty)",
+      "attr30: Unused (100% empty)",
+      "attr31: Unused (100% empty)",
+      "attr32: Unused (100% empty)",
+      "attr33: Unused (100% empty)",
+      "attr34: Unused (100% empty)",
+      "attr35: Unused (100% empty)",
+      "attr36: Unused (100% empty)",
+      "attr37: Unused (100% empty)",
+      "attr38: Unused (100% empty)",
+      "attr39: Unused (100% empty)",
+      "comment: Unused (100% empty)",
+      "table9: Unused (100% empty)",
+      "table17: Unused (100% empty)",
+      "table18: Unused (100% empty)",
+      "table19: Unused (100% empty)",
+      "table20: Unused (100% empty)",
+      "table21: Unused (100% empty)",
+      "table22: Unused (100% empty)",
+      "table23: Unused (100% empty)",
+      "table24: Unused (100% empty)",
+      "table26: Unused (100% empty)",
+      "table27: Unused (100% empty)",
+      "table28: Unused (100% empty)",
+      "table29: Unused (100% empty)",
+      "table30: Unused (100% empty)",
+      "table31: Unused (100% empty)",
+      "table32: Unused (100% empty)",
+      "table33: Unused (100% empty)",
+      "table34: Unused (100% empty)",
+      "table35: Unused (100% empty)",
+      "table36: Unused (100% empty)",
+      "table37: Unused (100% empty)",
+      "table38: Unused (100% empty)",
+      "table39: Unused (100% empty)",
+      "table40: Unused (100% empty)",
+      "table41: Unused (100% empty)",
+      "table42: Unused (100% empty)",
+      "table43: Unused (100% empty)",
+      "table44: Unused (100% empty)",
+      "table45: Unused (100% empty)",
+      "table46: Unused (100% empty)",
+      "table47: Unused (100% empty)",
+      "table48: Unused (100% empty)",
+      "table49: Unused (100% empty)",
+      "table50: Unused (100% empty)",
+      "table51: Unused (100% empty)",
+      "table52: Unused (100% empty)",
+      "table53: Unused (100% empty)",
+      "table54: Unused (100% empty)",
+      "table55: Unused (100% empty)",
+      "table56: Unused (100% empty)",
+      "table57: Unused (100% empty)",
+      "table58: Unused (100% empty)",
+      "table59: Unused (100% empty)"
+    ],
+    "Partially Empty Columns": [
+      "type: Partially Empty (3.77%)",
+      "desc: Partially Empty (1.99%)",
+      "info0: Partially Empty (79.56%)",
+      "info1: Partially Empty (40.94%)",
+      "attr0: Partially Empty (68.11%)",
+      "attr1: Partially Empty (99.52%)",
+      "attr2: Partially Empty (32.49%)",
+      "attr3: Partially Empty (89.45%)",
+      "attr7: Partially Empty (97.81%)",
+      "attr12: Partially Empty (96.65%)",
+      "attr13: Partially Empty (99.77%)",
+      "attr25: Partially Empty (98.08%)",
+      "attr26: Partially Empty (98.08%)",
+      "attr27: Partially Empty (60.84%)",
+      "attr28: Partially Empty (47.12%)",
+      "attr29: Partially Empty (99.95%)",
+      "table0: Partially Empty (26.76%)",
+      "table1: Partially Empty (32.79%)",
+      "table2: Partially Empty (21.23%)",
+      "table3: Partially Empty (91.03%)",
+      "table4: Partially Empty (31.35%)",
+      "table5: Partially Empty (35.52%)",
+      "table6: Partially Empty (59.34%)",
+      "table7: Partially Empty (37.40%)",
+      "table8: Partially Empty (99.59%)",
+      "table10: Partially Empty (79.25%)",
+      "table11: Partially Empty (97.40%)",
+      "table12: Partially Empty (85.91%)",
+      "table13: Partially Empty (98.77%)",
+      "table14: Partially Empty (97.99%)",
+      "table15: Partially Empty (99.56%)",
+      "table16: Partially Empty (93.54%)",
+      "table25: Partially Empty (95.48%)"
+    ],
+    "Key Column Statistics": {
+      "site": {
+        "Unique Values": 1,
+        "Non-Empty": "5620/5620",
+        "Filled Percent": "100.00%"
+      },
+      "service": {
+        "Unique Values": 1,
+        "Non-Empty": "5620/5620",
+        "Filled Percent": "100.00%"
+      },
+      "id": {
+        "Unique Values": 5620,
+        "Non-Empty": "5620/5620",
+        "Filled Percent": "100.00%"
+      },
+      "is_active": {
+        "Unique Values": 2,
+        "Non-Empty": "5620/5620",
+        "Filled Percent": "100.00%"
+      },
+      "type": {
+        "Unique Values": 19,
+        "Non-Empty": "5408/5620",
+        "Filled Percent": "96.23%"
+      },
+      "desc": {
+        "Unique Values": 5175,
+        "Non-Empty": "5508/5620",
+        "Filled Percent": "98.01%"
+      },
+      "category": {
+        "Unique Values": 5,
+        "Non-Empty": "5620/5620",
+        "Filled Percent": "100.00%"
+      }
+    },
+    "Column Summary": {
+      "Total Columns": 131,
+      "Fully Populated": 25,
+      "Fully Empty": 73,
+      "Partially Filled": 33
+    },
+    "_meta": {
+      "last_updated": "2025-12-16T12:15:31",
+      "unix_ts": 1765908931,
+      "source": "fac_summary",
+      "filepath": "N/A"
+    }
+  },
   "compare_trs_pnt": {
     "coverage": {
       "matches": [
@@ -3605,8 +4751,8 @@
     },
     "_meta": {
       "note": "Comparison Strictly on TRS '~UDCALL' ENTRY vs PNT 'uniformdatacode' column",
-      "last_updated": "2025-12-12T14:43:46",
-      "unix_ts": 1765572226,
+      "last_updated": "2025-12-16T09:34:12",
+      "unix_ts": 1765899252,
       "source": "compare_trs_pnt",
       "filepath": "N/A"
     }
@@ -3621,6 +4767,105 @@
     "compare_trs_pnt",
     "fac_summary",
     "pnt_summary",
-    "trs_summary"
-  ]
+    "trs_summary",
+    "validation_all"
+  ],
+  "validation_all": {
+    "summary": {
+      "trs_total_rows": 8485,
+      "pnt_total_rows": 45726,
+      "fac_total_rows": 5620
+    },
+    "trs_pnt_relationship": {
+      "join_description": "TRS.ENTRY (TABLE='~UDCALL') ↔ PNT.uniformdatacode",
+      "overlap": {
+        "dataset_a": "trs.ENTRY",
+        "dataset_b": "pnt.uniformdatacode",
+        "total_a": 3156,
+        "total_b": 453,
+        "intersection": 432,
+        "overlap_pct_a": 13.69,
+        "overlap_pct_b": 95.36,
+        "only_in_a": 2724,
+        "only_in_b": 21,
+        "sample_only_a": [
+          "0",
+          "02HIWRN1",
+          "02HIWRN2",
+          "02HIWRN3",
+          "1",
+          "2",
+          "2113WBHALM",
+          "2113WCHALM",
+          "2117WCHALM",
+          "2121WCHALM"
+        ],
+        "sample_only_b": [
+          "ACPWR",
+          "AUTSTAT",
+          "COMPOL",
+          "DTLVL",
+          "FLWCHK",
+          "HIFLOWSD",
+          "LOOILPSI",
+          "LRATE",
+          "LRUNPERM",
+          "PSTATUS"
+        ],
+        "sample_matches": [
+          "ABBLALM",
+          "ACFAIL",
+          "ACPALM",
+          "AFTDECSLW",
+          "AFTINCFST",
+          "AIRSUPPLY",
+          "ARVT1",
+          "ARVT10",
+          "ARVT2",
+          "ARVT3"
+        ]
+      }
+    },
+    "pnt_fac_relationship": {
+      "join_description": "PNT.facilityid ↔ FAC.id",
+      "referential_integrity": {
+        "valid": true,
+        "total_child_records": 45726,
+        "total_child_unique": 2866,
+        "parent_unique_count": 5620,
+        "matched_count": 2866,
+        "orphaned_count": 0,
+        "orphaned_unique_values": [],
+        "integrity_pct": 100.0,
+        "orphan_frequency": {}
+      }
+    },
+    "service_consistency": {
+      "total_joined_records": 45726,
+      "service_matches": 45726,
+      "service_mismatches": 0,
+      "service_mismatch_pct": 0.0,
+      "mismatch_examples": [],
+      "service_distribution": {
+        "pnt": {
+          "UIS": 45726
+        },
+        "fac": {
+          "UIS": 5620
+        }
+      }
+    },
+    "recommendations": [
+      "✓ 95.36% of PNT UDC codes have matching entries in TRS",
+      "✓ 100.0% of PNT tags link to valid FAC records",
+      "✓ Service consistency is good (45726 matches, 0 mismatches)"
+    ],
+    "validation_status": "PASS",
+    "_meta": {
+      "last_updated": "2025-12-16T13:54:42",
+      "unix_ts": 1765914882,
+      "source": "validation_all",
+      "filepath": "N/A"
+    }
+  }
 }

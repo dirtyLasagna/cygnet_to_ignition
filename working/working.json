@@ -3,7 +3,8 @@
     "base-path": "C:\\Users\\graham.lasseigne\\_development\\cygnet_to_ignition\\cygnet_input",
     "extension": ".csv",
     "parse-trs": "TEXAS_TRS",
-    "parse-pnt": "",
-    "parse-fac": ""
+    "parse-pnt": "PntExport_110425",
+    "parse-fac": "texas.uis_facattrs",
+    "merged-validation-dataset": "C:\\Users\\graham.lasseigne\\_development\\cygnet_to_ignition\\analytical_output\\merged_validation_dataset.csv"
   }
 }
