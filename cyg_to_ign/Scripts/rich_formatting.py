@@ -214,18 +214,147 @@ def display_fac_summary(summary):
         mixed_text = "\n".join(mixed_list) if mixed_list else "None"
         #console.print(Panel(mixed_text, title="Partially Empty Columns", border_style="magenta"))
 
-    # Missing Values Table (only columns with missing data)
-    if summary['Missing Values']:
-        missing_table = Table(show_lines=True)
-        missing_table.add_column("Column", style="bold yellow")
-        missing_table.add_column("Missing Count", justify="center")
-        missing_table.add_column("Percent Missing", justify="center")
+def display_attribute_analysis(analysis: dict):
+    """Display attribute analysis results with rich formatting."""
+    # Main Panel
+    console.print(Panel(
+        "[bold cyan]Facility Attribute Analysis Results[/bold cyan]",
+        border_style="blue",
+        title_align="left"
+    ))
+    
+    # Overview Section
+    overview = (
+        f"[bold]Total Facilities:[/bold] {analysis['total_facilities']}\n"
+        f"[bold]Total Columns:[/bold] {analysis['total_columns']}\n"
+        f"[bold]Key Attributes Found:[/bold] {analysis['key_attributes_count']}\n"
+        f"[bold]Natural Groups Discovered:[/bold] {analysis['facility_groups_found']}\n"
+        f"[bold]Group Coverage:[/bold] {analysis['group_coverage_pct']:.1f}%"
+    )
+    console.print(Panel(overview, title="Analysis Overview", border_style="green"))
+    
+    # Key Attributes Table (showing ALL key attributes)
+    if analysis.get("key_attributes"):
+        table = Table(title=f"Key Discriminative Attributes ({len(analysis['key_attributes'])} found)", show_lines=True)
+        table.add_column("Rank", style="bold magenta", justify="center", width=5)
+        table.add_column("Column", style="bold cyan", width=15)
+        table.add_column("Score", justify="center", width=8)
+        table.add_column("Fill %", justify="center", width=8)
+        table.add_column("Unique", justify="center", width=8)
+        table.add_column("Category", style="dim", width=20)
         
-        for col, vals in summary['Missing Values'].items():
-            missing_table.add_row(col, str(vals['count']), vals['percent'])
+        for i, attr in enumerate(analysis["key_attributes"], 1):
+            table.add_row(
+                str(i),
+                attr["column"],
+                f"{attr['score']:.3f}",
+                f"{attr['fill_rate']*100:.1f}%",
+                str(attr["unique_count"]),
+                attr["category"]
+            )
         
-        console.print(Panel(missing_table, title="Columns with Missing Values", border_style="magenta"))
-    else:
-        console.print(Panel("[green]No missing values found - all columns fully populated![/green]", title="Missing Values", border_style="green"))
+        console.print(table)
+    
+    # Assumed Facility Groups Table
+    if analysis.get("assumed_facility_groups"):
+        group_table = Table(title=f"Assumed Facility Groups (Top {len(analysis['assumed_facility_groups'])})", show_lines=True)
+        group_table.add_column("Group", style="bold green", justify="center", width=6)
+        group_table.add_column("Facilities", justify="center", width=10)
+        group_table.add_column("% Total", justify="center", width=8)
+        group_table.add_column("Attr Count", justify="center", width=10)
+        group_table.add_column("Key Attributes (Top 5)", style="cyan", width=60)
+        
+        for group in analysis["assumed_facility_groups"]:
+            group_table.add_row(
+                str(group["group_id"]),
+                str(group["facility_count"]),
+                f"{group['percent_of_total']:.1f}%",
+                str(group["attribute_count"]),
+                ", ".join(group["key_attributes"])
+            )
+        
+        console.print(group_table)
+    
+    # Recommendations Panel
+    if analysis.get("recommendations"):
+        rec_text = "\n".join(analysis["recommendations"])
+        console.print(Panel(
+            rec_text,
+            title="Recommendations & Next Steps",
+            border_style="yellow"
+        ))
+    
+    console.print()
 
-    return 
+def display_description_analysis(analysis: dict):
+    """Display description analysis (Phase 2) results with rich formatting."""
+    # Main Panel
+    console.print(Panel(
+        "[bold cyan]Facility Description Analysis Results (Phase 2)[/bold cyan]",
+        border_style="blue",
+        title_align="left"
+    ))
+    
+    # Overview Section
+    overview = (
+        f"[bold]Total Facilities:[/bold] {analysis['total_facilities']}\n"
+        f"[bold]Phase 1 Groups Analyzed:[/bold] {analysis['phase_1_groups']}\n"
+        f"[bold]Equipment Types Discovered:[/bold] {analysis['equipment_types_discovered']}\n"
+        f"[bold]High Confidence:[/bold] {analysis['validation_summary']['high_confidence']}\n"
+        f"[bold]Medium Confidence:[/bold] {analysis['validation_summary']['medium_confidence']}\n"
+        f"[bold]Low Confidence:[/bold] {analysis['validation_summary']['low_confidence']}"
+    )
+    console.print(Panel(overview, title="Analysis Overview", border_style="green"))
+    
+    # Equipment Types Table
+    if analysis.get("assumed_equipment_types"):
+        eq_table = Table(title="Discovered Equipment Types", show_lines=True)
+        eq_table.add_column("ID", style="bold magenta", justify="center", width=4)
+        eq_table.add_column("Equipment Type", style="bold cyan", width=25)
+        eq_table.add_column("Count", justify="center", width=8)
+        eq_table.add_column("%", justify="center", width=7)
+        eq_table.add_column("Confidence", justify="center", width=10)
+        eq_table.add_column("Keywords", style="dim", width=40)
+        
+        for eq in analysis["assumed_equipment_types"]:
+            confidence_color = {
+                "high": "[green]high[/green]",
+                "medium": "[yellow]medium[/yellow]",
+                "low": "[red]low[/red]"
+            }.get(eq["confidence"], eq["confidence"])
+            
+            eq_table.add_row(
+                str(eq["equipment_type_id"]),
+                eq["suggested_name"],
+                str(eq["facility_count"]),
+                f"{eq['percent_of_total']:.1f}%",
+                confidence_color,
+                ", ".join(eq["keywords"][:5])
+            )
+        
+        console.print(eq_table)
+    
+    # Equipment Vocabulary Summary
+    if analysis.get("equipment_vocabulary"):
+        vocab_text = []
+        for name, data in list(analysis["equipment_vocabulary"].items())[:5]:  # Top 5
+            keywords_str = ", ".join(data["keywords"][:5])
+            vocab_text.append(f"[cyan]{name}[/cyan]: {keywords_str} ({data['total_facilities']} facilities)")
+        
+        if vocab_text:
+            console.print(Panel(
+                "\n".join(vocab_text),
+                title="Equipment Vocabulary (Top 5)",
+                border_style="cyan"
+            ))
+    
+    # Recommendations Panel
+    if analysis.get("recommendations"):
+        rec_text = "\n".join(analysis["recommendations"])
+        console.print(Panel(
+            rec_text,
+            title="Recommendations & Next Steps",
+            border_style="yellow"
+        ))
+    
+    console.print() 

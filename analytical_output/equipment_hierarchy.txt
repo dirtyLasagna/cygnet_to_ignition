@@ -1,0 +1,473 @@
+================================================================================
+FACILITY EQUIPMENT HIERARCHY
+================================================================================
+Generated: 2025-12-17 16:29:19
+Total Equipment Types: 50
+Hierarchical Relationships: 120
+================================================================================
+
+ROOT EQUIPMENT CATEGORIES
+--------------------------------------------------------------------------------
+
+├── [HIGH] Gas Meters (542 facilities, 7145 tags)
+│   Keywords: meter, poll, gas
+│   UDCs: 123 distinct (0 core, 1 common)
+│   Sample Facilities: 38_40W_OT1, 38_40W_WT1, 38_40W_WT2
+│   ├── [HIGH] Poll Equipment (290 facilities, 3107 tags)
+│   │   Keywords: poll, turnerre, univ
+│   │   UDCs: 263 distinct (0 core, 1 common)
+│   │   Sample Facilities: 38_40W_PMP1, 38_40W_PMP2, 38_40W_WX1
+│   ├── [HIGH] Poll Equipment (88 facilities, 1157 tags)
+│   │   Keywords: poll, univ, wtr
+│   │   UDCs: 137 distinct (0 core, 1 common)
+│   │   Sample Facilities: BOOSTER_601, BOOSTER_GARRISON, HAMRE_OT6
+│   ├── [MEDIUM] Univ Equipment (33 facilities, 124 tags)
+│   │   Keywords: univ, munson, frac
+│   │   UDCs: 28 distinct (0 core, 1 common)
+│   │   Sample Facilities: FP_GRAND, FP_LINTHICUM_I, FP_LINTHICUM_M
+│   ├── [HIGH] Poll Equipment (24 facilities, 72 tags)
+│   │   Keywords: poll, linthicumb, mayer
+│   │   UDCs: 21 distinct (0 core, 1 common)
+│   │   Sample Facilities: 9C_12_EAST, 9C_12_WEST, 9_28E_1
+│   ├── [HIGH] Barnyard Equipment (18 facilities, 29 tags)
+│   │   Keywords: barnyard, sales, sck
+│   │   UDCs: 12 distinct (1 core, 0 common)
+│   │   Core UDCs:
+│   │     • SYCSLSCT: 100.0% coverage (18 facilities)
+│   │   Sample Facilities: BARNAYRD_HE_SWD, BARNAYRD_MTN_SWD, BARNYARD_COMP_SLS_2
+│   ├── [HIGH] Tanks/Storage (13 facilities, 20 tags)
+│   │   Keywords: tank, water, frac
+│   │   UDCs: 8 distinct (1 core, 0 common)
+│   │   Core UDCs:
+│   │     • SYCSLSCT: 100.0% coverage (13 facilities)
+│   │   Sample Facilities: FP_GRAND_WT1, FP_LINTHICUM_I_WT1, FP_LINTHICUM_M_WT1
+│   ├── [HIGH] Poll Equipment (290 facilities, 3107 tags)
+│   │   Keywords: poll, turnerre, univ
+│   │   UDCs: 263 distinct (0 core, 1 common)
+│   │   Sample Facilities: 38_40W_PMP1, 38_40W_PMP2, 38_40W_WX1
+│   ├── [HIGH] Poll Equipment (88 facilities, 1157 tags)
+│   │   Keywords: poll, univ, wtr
+│   │   UDCs: 137 distinct (0 core, 1 common)
+│   │   Sample Facilities: BOOSTER_601, BOOSTER_GARRISON, HAMRE_OT6
+│   ├── [MEDIUM] Univ Equipment (33 facilities, 124 tags)
+│   │   Keywords: univ, munson, frac
+│   │   UDCs: 28 distinct (0 core, 1 common)
+│   │   Sample Facilities: FP_GRAND, FP_LINTHICUM_I, FP_LINTHICUM_M
+│   ├── [HIGH] Poll Equipment (24 facilities, 72 tags)
+│   │   Keywords: poll, linthicumb, mayer
+│   │   UDCs: 21 distinct (0 core, 1 common)
+│   │   Sample Facilities: 9C_12_EAST, 9C_12_WEST, 9_28E_1
+│   ├── [HIGH] Barnyard Equipment (18 facilities, 29 tags)
+│   │   Keywords: barnyard, sales, sck
+│   │   UDCs: 12 distinct (1 core, 0 common)
+│   │   Core UDCs:
+│   │     • SYCSLSCT: 100.0% coverage (18 facilities)
+│   │   Sample Facilities: BARNAYRD_HE_SWD, BARNAYRD_MTN_SWD, BARNYARD_COMP_SLS_2
+│   └── [HIGH] Tanks/Storage (13 facilities, 20 tags)
+│       Keywords: tank, water, frac
+│       UDCs: 8 distinct (1 core, 0 common)
+│       Core UDCs:
+│         • SYCSLSCT: 100.0% coverage (13 facilities)
+│       Sample Facilities: FP_GRAND_WT1, FP_LINTHICUM_I_WT1, FP_LINTHICUM_M_WT1
+│
+├── [HIGH] Faudree Equipment (137 facilities, 1132 tags)
+│   Keywords: faudree, oil, university
+│   UDCs: 51 distinct (1 core, 5 common)
+│   Core UDCs:
+│     • SYCSLSCT: 95.6% coverage (131 facilities)
+│   Sample Facilities: FAUDREE_10H_OIL, FAUDREE_10H_WTR, FAUDREE_1138_OT1
+│   ├── [HIGH] Gas Meters (70 facilities, 623 tags)
+│   │   Keywords: meter, gas, mayer
+│   │   UDCs: 55 distinct (0 core, 5 common)
+│   │   Sample Facilities: BARNYARD_HE_SWD_IN1, MAYER45_3806WC_GL, MAYER45_3810WC_GL
+│   ├── [HIGH] Meters (67 facilities, 510 tags)
+│   │   Keywords: faudree, meter, poll
+│   │   UDCs: 58 distinct (6 core, 0 common)
+│   │   Core UDCs:
+│   │     • SYCSLSCT: 95.5% coverage (64 facilities)
+│   │     • RATE: 88.1% coverage (59 facilities)
+│   │     • VACC: 88.1% coverage (59 facilities)
+│   │     • VTDY: 88.1% coverage (59 facilities)
+│   │     • VYDY: 88.1% coverage (59 facilities)
+│   │     ... and 1 more core UDCs
+│   │   Sample Facilities: FAUDREE_1138_VRU1, FAUDREE_1138_WX1, FAUDREE_1139_OIL1
+│   ├── [HIGH] Mayer Equipment (33 facilities, 126 tags)
+│   │   Keywords: mayer, pond, west
+│   │   UDCs: 6 distinct (0 core, 6 common)
+│   │   Sample Facilities: 9_27W_1, 9_27W_2, 9_28W_1
+│   ├── [HIGH] Pond Equipment (30 facilities, 197 tags)
+│   │   Keywords: pond, faudree, linthicumm
+│   │   UDCs: 7 distinct (6 core, 1 common)
+│   │   Core UDCs:
+│   │     • LWATER: 100.0% coverage (30 facilities)
+│   │     • RATE: 100.0% coverage (30 facilities)
+│   │     • SYCSLSCT: 100.0% coverage (30 facilities)
+│   │     • VACC: 100.0% coverage (30 facilities)
+│   │     • VTDY: 100.0% coverage (30 facilities)
+│   │     ... and 1 more core UDCs
+│   │   Sample Facilities: FAUDREE_POND_2501, FAUDREE_POND_2502, FAUDREE_POND_2504
+│   ├── [HIGH] Meters (27 facilities, 334 tags)
+│   │   Keywords: meter, university, ctb
+│   │   UDCs: 42 distinct (0 core, 5 common)
+│   │   Sample Facilities: FAUDREE_FAC1_AIR, FAUDREE_FAC2_FLR, FAUDREE_FAC3_AIR
+│   ├── [HIGH] Linthicumi Equipment (12 facilities, 78 tags)
+│   │   Keywords: linthicumi, pond, linthicum
+│   │   UDCs: 7 distinct (6 core, 1 common)
+│   │   Core UDCs:
+│   │     • LWATER: 100.0% coverage (12 facilities)
+│   │     • RATE: 100.0% coverage (12 facilities)
+│   │     • SYCSLSCT: 100.0% coverage (12 facilities)
+│   │     • VACC: 100.0% coverage (12 facilities)
+│   │     • VTDY: 100.0% coverage (12 facilities)
+│   │     ... and 1 more core UDCs
+│   │   Sample Facilities: LINTHICUMI_POND_2, LINTHICUMI_POND_4, LINTHICUMI_POND_5
+│   ├── [HIGH] Gas Meters (70 facilities, 623 tags)
+│   │   Keywords: meter, gas, mayer
+│   │   UDCs: 55 distinct (0 core, 5 common)
+│   │   Sample Facilities: BARNYARD_HE_SWD_IN1, MAYER45_3806WC_GL, MAYER45_3810WC_GL
+│   ├── [HIGH] Meters (67 facilities, 510 tags)
+│   │   Keywords: faudree, meter, poll
+│   │   UDCs: 58 distinct (6 core, 0 common)
+│   │   Core UDCs:
+│   │     • SYCSLSCT: 95.5% coverage (64 facilities)
+│   │     • RATE: 88.1% coverage (59 facilities)
+│   │     • VACC: 88.1% coverage (59 facilities)
+│   │     • VTDY: 88.1% coverage (59 facilities)
+│   │     • VYDY: 88.1% coverage (59 facilities)
+│   │     ... and 1 more core UDCs
+│   │   Sample Facilities: FAUDREE_1138_VRU1, FAUDREE_1138_WX1, FAUDREE_1139_OIL1
+│   ├── [HIGH] Mayer Equipment (33 facilities, 126 tags)
+│   │   Keywords: mayer, pond, west
+│   │   UDCs: 6 distinct (0 core, 6 common)
+│   │   Sample Facilities: 9_27W_1, 9_27W_2, 9_28W_1
+│   ├── [HIGH] Pond Equipment (30 facilities, 197 tags)
+│   │   Keywords: pond, faudree, linthicumm
+│   │   UDCs: 7 distinct (6 core, 1 common)
+│   │   Core UDCs:
+│   │     • LWATER: 100.0% coverage (30 facilities)
+│   │     • RATE: 100.0% coverage (30 facilities)
+│   │     • SYCSLSCT: 100.0% coverage (30 facilities)
+│   │     • VACC: 100.0% coverage (30 facilities)
+│   │     • VTDY: 100.0% coverage (30 facilities)
+│   │     ... and 1 more core UDCs
+│   │   Sample Facilities: FAUDREE_POND_2501, FAUDREE_POND_2502, FAUDREE_POND_2504
+│   ├── [HIGH] Meters (27 facilities, 334 tags)
+│   │   Keywords: meter, university, ctb
+│   │   UDCs: 42 distinct (0 core, 5 common)
+│   │   Sample Facilities: FAUDREE_FAC1_AIR, FAUDREE_FAC2_FLR, FAUDREE_FAC3_AIR
+│   └── [HIGH] Linthicumi Equipment (12 facilities, 78 tags)
+│       Keywords: linthicumi, pond, linthicum
+│       UDCs: 7 distinct (6 core, 1 common)
+│       Core UDCs:
+│         • LWATER: 100.0% coverage (12 facilities)
+│         • RATE: 100.0% coverage (12 facilities)
+│         • SYCSLSCT: 100.0% coverage (12 facilities)
+│         • VACC: 100.0% coverage (12 facilities)
+│         • VTDY: 100.0% coverage (12 facilities)
+│         ... and 1 more core UDCs
+│       Sample Facilities: LINTHICUMI_POND_2, LINTHICUMI_POND_4, LINTHICUMI_POND_5
+│
+├── [HIGH] Tanks/Storage (117 facilities, 1311 tags)
+│   Keywords: tank, oil, munson
+│   UDCs: 57 distinct (10 core, 0 common)
+│   Core UDCs:
+│     • SYCSLSCT: 94.0% coverage (110 facilities)
+│     • TEMP: 88.0% coverage (103 facilities)
+│     • BBL: 86.3% coverage (101 facilities)
+│     • CBBL: 86.3% coverage (101 facilities)
+│     • CFEET: 86.3% coverage (101 facilities)
+│     ... and 5 more core UDCs
+│   Sample Facilities: GRAND_OT1, GRAND_OT2, GRAND_WT1
+│   ├── [HIGH] Tanks/Storage (23 facilities, 219 tags)
+│   │   Keywords: linthicummn, linthicum, tank
+│   │   UDCs: 27 distinct (1 core, 9 common)
+│   │   Core UDCs:
+│   │     • SYCSLSCT: 95.7% coverage (22 facilities)
+│   │   Sample Facilities: LINTHICUMB_FT1, LINTHICUMB_OT1, LINTHICUMB_OT2
+│   └── [HIGH] Tanks/Storage (23 facilities, 219 tags)
+│       Keywords: linthicummn, linthicum, tank
+│       UDCs: 27 distinct (1 core, 9 common)
+│       Core UDCs:
+│         • SYCSLSCT: 95.7% coverage (22 facilities)
+│       Sample Facilities: LINTHICUMB_FT1, LINTHICUMB_OT1, LINTHICUMB_OT2
+│
+├── [MEDIUM] Linthicum Equipment (104 facilities, 2082 tags)
+│   Keywords: linthicum, university, plunger
+│   UDCs: 121 distinct (1 core, 8 common)
+│   Core UDCs:
+│     • SYCSLSCT: 80.8% coverage (84 facilities)
+│   Sample Facilities: FAUDREE_1138_12HGL, FAUDREE_1142_BT1, FAUDREE_13PL
+│   ├── [HIGH] Sec Equipment (29 facilities, 308 tags)
+│   │   Keywords: sec, ctb, university
+│   │   UDCs: 14 distinct (11 core, 0 common)
+│   │   Core UDCs:
+│   │     • POLLSTATUS: 93.1% coverage (27 facilities)
+│   │     • SYCSAPRT: 93.1% coverage (27 facilities)
+│   │     • SYCSLSCT: 93.1% coverage (27 facilities)
+│   │     • SYCSSTATCD: 93.1% coverage (27 facilities)
+│   │     • SYCSSTPCD: 93.1% coverage (27 facilities)
+│   │     ... and 6 more core UDCs
+│   │   Sample Facilities: FAUDREE_FAC1_FL1, FAUDREE_FAC2_FL1, FAUDREE_FAC3_FL1
+│   ├── [MEDIUM] Swd Equipment (14 facilities, 166 tags)
+│   │   Keywords: swd, sem, barnyard
+│   │   UDCs: 77 distinct (0 core, 11 common)
+│   │   Sample Facilities: BARNHART_EP_SEM_RD, BARNHART_EP_WX1_RD, BARNYARD_HE_SWD
+│   ├── [HIGH] Faudree Equipment (11 facilities, 124 tags)
+│   │   Keywords: faudree, sec, ctb
+│   │   UDCs: 16 distinct (11 core, 2 common)
+│   │   Core UDCs:
+│   │     • SYCSLSCT: 100.0% coverage (11 facilities)
+│   │     • POLLSTATUS: 90.9% coverage (10 facilities)
+│   │     • SYCSAPRT: 90.9% coverage (10 facilities)
+│   │     • SYCSSTPCM: 90.9% coverage (10 facilities)
+│   │     • SYDEVADDR: 90.9% coverage (10 facilities)
+│   │     ... and 6 more core UDCs
+│   │   Sample Facilities: FAUDREE_9GL, FAUDREE_CK1, FAUDREE_CK2
+│   ├── [HIGH] Sec Equipment (29 facilities, 308 tags)
+│   │   Keywords: sec, ctb, university
+│   │   UDCs: 14 distinct (11 core, 0 common)
+│   │   Core UDCs:
+│   │     • POLLSTATUS: 93.1% coverage (27 facilities)
+│   │     • SYCSAPRT: 93.1% coverage (27 facilities)
+│   │     • SYCSLSCT: 93.1% coverage (27 facilities)
+│   │     • SYCSSTATCD: 93.1% coverage (27 facilities)
+│   │     • SYCSSTPCD: 93.1% coverage (27 facilities)
+│   │     ... and 6 more core UDCs
+│   │   Sample Facilities: FAUDREE_FAC1_FL1, FAUDREE_FAC2_FL1, FAUDREE_FAC3_FL1
+│   ├── [MEDIUM] Swd Equipment (14 facilities, 166 tags)
+│   │   Keywords: swd, sem, barnyard
+│   │   UDCs: 77 distinct (0 core, 11 common)
+│   │   Sample Facilities: BARNHART_EP_SEM_RD, BARNHART_EP_WX1_RD, BARNYARD_HE_SWD
+│   └── [HIGH] Faudree Equipment (11 facilities, 124 tags)
+│       Keywords: faudree, sec, ctb
+│       UDCs: 16 distinct (11 core, 2 common)
+│       Core UDCs:
+│         • SYCSLSCT: 100.0% coverage (11 facilities)
+│         • POLLSTATUS: 90.9% coverage (10 facilities)
+│         • SYCSAPRT: 90.9% coverage (10 facilities)
+│         • SYCSSTPCM: 90.9% coverage (10 facilities)
+│         • SYDEVADDR: 90.9% coverage (10 facilities)
+│         ... and 6 more core UDCs
+│       Sample Facilities: FAUDREE_9GL, FAUDREE_CK1, FAUDREE_CK2
+│
+├── [HIGH] Gas Meters (39 facilities, 937 tags)
+│   Keywords: meter, gas, univ
+│   UDCs: 50 distinct (0 core, 40 common)
+│   Sample Facilities: HOBO_SCK_1, HOBO_SCK_2, MAYER45_CK1
+│   ├── [HIGH] Meters (36 facilities, 1207 tags)
+│   │   Keywords: meter, faudree, sec
+│   │   UDCs: 44 distinct (40 core, 0 common)
+│   │   Core UDCs:
+│   │     • SYCSLSCT: 86.1% coverage (31 facilities)
+│   │     • CFGARGN: 83.3% coverage (30 facilities)
+│   │     • CFGCH4: 83.3% coverage (30 facilities)
+│   │     • CFGCO: 83.3% coverage (30 facilities)
+│   │     • CFGCO2: 83.3% coverage (30 facilities)
+│   │     ... and 35 more core UDCs
+│   │   Sample Facilities: FAUDREE_1139_BLK1, FAUDREE_1139_TST1, FAUDREE_1139_TST2
+│   ├── [HIGH] Gas Meters (23 facilities, 882 tags)
+│   │   Keywords: meter, gas, pressure
+│   │   UDCs: 44 distinct (42 core, 0 common)
+│   │   Core UDCs:
+│   │     • CFGARGN: 91.3% coverage (21 facilities)
+│   │     • CFGCH4: 91.3% coverage (21 facilities)
+│   │     • CFGCO: 91.3% coverage (21 facilities)
+│   │     • CFGCO2: 91.3% coverage (21 facilities)
+│   │     • CFGDECN: 91.3% coverage (21 facilities)
+│   │     ... and 37 more core UDCs
+│   │   Sample Facilities: MAYER_4503H, MAYER_4505H, MAYER_4507H
+│   ├── [HIGH] Gas Meters (17 facilities, 605 tags)
+│   │   Keywords: mayer, meter, gas
+│   │   UDCs: 46 distinct (39 core, 5 common)
+│   │   Core UDCs:
+│   │     • CFGARGN: 82.3% coverage (14 facilities)
+│   │     • CFGCH4: 82.3% coverage (14 facilities)
+│   │     • CFGCO: 82.3% coverage (14 facilities)
+│   │     • CFGCO2: 82.3% coverage (14 facilities)
+│   │     • CFGDECN: 82.3% coverage (14 facilities)
+│   │     ... and 34 more core UDCs
+│   │   Sample Facilities: AJAX_PL_GL, EAGHEAD_FAC1_AIR, MAYER_4501WB_BO_GL
+│   ├── [HIGH] Faudree Equipment (14 facilities, 370 tags)
+│   │   Keywords: faudree, university, gas
+│   │   UDCs: 43 distinct (6 core, 36 common)
+│   │   Core UDCs:
+│   │     • SYCSLSCT: 100.0% coverage (14 facilities)
+│   │     • RATE: 92.9% coverage (13 facilities)
+│   │     • VTDY: 92.9% coverage (13 facilities)
+│   │     • VYDY: 92.9% coverage (13 facilities)
+│   │     • PCASING: 85.7% coverage (12 facilities)
+│   │     ... and 1 more core UDCs
+│   │   Sample Facilities: FAUDREE_13H, FAUDREE_14H, FAUDREE_15H
+│   ├── [HIGH] Meters (36 facilities, 1207 tags)
+│   │   Keywords: meter, faudree, sec
+│   │   UDCs: 44 distinct (40 core, 0 common)
+│   │   Core UDCs:
+│   │     • SYCSLSCT: 86.1% coverage (31 facilities)
+│   │     • CFGARGN: 83.3% coverage (30 facilities)
+│   │     • CFGCH4: 83.3% coverage (30 facilities)
+│   │     • CFGCO: 83.3% coverage (30 facilities)
+│   │     • CFGCO2: 83.3% coverage (30 facilities)
+│   │     ... and 35 more core UDCs
+│   │   Sample Facilities: FAUDREE_1139_BLK1, FAUDREE_1139_TST1, FAUDREE_1139_TST2
+│   ├── [HIGH] Gas Meters (23 facilities, 882 tags)
+│   │   Keywords: meter, gas, pressure
+│   │   UDCs: 44 distinct (42 core, 0 common)
+│   │   Core UDCs:
+│   │     • CFGARGN: 91.3% coverage (21 facilities)
+│   │     • CFGCH4: 91.3% coverage (21 facilities)
+│   │     • CFGCO: 91.3% coverage (21 facilities)
+│   │     • CFGCO2: 91.3% coverage (21 facilities)
+│   │     • CFGDECN: 91.3% coverage (21 facilities)
+│   │     ... and 37 more core UDCs
+│   │   Sample Facilities: MAYER_4503H, MAYER_4505H, MAYER_4507H
+│   ├── [HIGH] Gas Meters (17 facilities, 605 tags)
+│   │   Keywords: mayer, meter, gas
+│   │   UDCs: 46 distinct (39 core, 5 common)
+│   │   Core UDCs:
+│   │     • CFGARGN: 82.3% coverage (14 facilities)
+│   │     • CFGCH4: 82.3% coverage (14 facilities)
+│   │     • CFGCO: 82.3% coverage (14 facilities)
+│   │     • CFGCO2: 82.3% coverage (14 facilities)
+│   │     • CFGDECN: 82.3% coverage (14 facilities)
+│   │     ... and 34 more core UDCs
+│   │   Sample Facilities: AJAX_PL_GL, EAGHEAD_FAC1_AIR, MAYER_4501WB_BO_GL
+│   └── [HIGH] Faudree Equipment (14 facilities, 370 tags)
+│       Keywords: faudree, university, gas
+│       UDCs: 43 distinct (6 core, 36 common)
+│       Core UDCs:
+│         • SYCSLSCT: 100.0% coverage (14 facilities)
+│         • RATE: 92.9% coverage (13 facilities)
+│         • VTDY: 92.9% coverage (13 facilities)
+│         • VYDY: 92.9% coverage (13 facilities)
+│         • PCASING: 85.7% coverage (12 facilities)
+│         ... and 1 more core UDCs
+│       Sample Facilities: FAUDREE_13H, FAUDREE_14H, FAUDREE_15H
+│
+└── [HIGH] Faudree Equipment (27 facilities, 147 tags)
+    Keywords: faudree, university, linthicummn
+    UDCs: 42 distinct (0 core, 3 common)
+    Sample Facilities: FAUDREE_10H, FAUDREE_11H, FAUDREE_12H
+    ├── [HIGH] Gas Meters (16 facilities, 328 tags)
+    │   Keywords: turner, gas, meter
+    │   UDCs: 43 distinct (3 core, 1 common)
+    │   Core UDCs:
+    │     • PCASING: 100.0% coverage (16 facilities)
+    │     • PTUBING: 100.0% coverage (16 facilities)
+    │     • SYCSLSCT: 93.8% coverage (15 facilities)
+    │   Sample Facilities: TURNER_13H, TURNER_1H, TURNER_25H
+    └── [HIGH] Gas Meters (16 facilities, 328 tags)
+        Keywords: turner, gas, meter
+        UDCs: 43 distinct (3 core, 1 common)
+        Core UDCs:
+          • PCASING: 100.0% coverage (16 facilities)
+          • PTUBING: 100.0% coverage (16 facilities)
+          • SYCSLSCT: 93.8% coverage (15 facilities)
+        Sample Facilities: TURNER_13H, TURNER_1H, TURNER_25H
+
+================================================================================
+ISOLATED EQUIPMENT TYPES (No Hierarchical Relationships)
+--------------------------------------------------------------------------------
+
+├── [MEDIUM] Univ Equipment (1334 facilities, 8583 tags)
+│   Keywords: univ, plunger, device
+│   UDCs: 192 distinct (0 core, 0 common)
+│   Sample Facilities: 10_162_63_137_5001, 9C_12_POND, 9_28E_POND
+├── [HIGH] Meters (595 facilities, 966 tags)
+│   Keywords: oil, poll, meter
+│   UDCs: 61 distinct (0 core, 0 common)
+│   Sample Facilities: LINTHICUMC_OIL1, LINTHICUMC_OIL2, LINTHICUMC_OIL3
+├── [HIGH] Meters (458 facilities, 1917 tags)
+│   Keywords: meter, poll, oil
+│   UDCs: 86 distinct (0 core, 0 common)
+│   Sample Facilities: ARNETT_SWD_OT1, ARNETT_SWD_WT1, ARNETT_SWD_WT2
+├── [HIGH] Gas Meters (156 facilities, 1074 tags)
+│   Keywords: meter, poll, gas
+│   UDCs: 43 distinct (0 core, 0 common)
+│   Sample Facilities: BARNHART_EP_SEM_WX1, BARNHART_EP_WX1, BARNYARD_COMP_SCK_2
+├── [HIGH] Poll Equipment (127 facilities, 574 tags)
+│   Keywords: poll, univ, eaghead
+│   UDCs: 64 distinct (0 core, 0 common)
+│   Sample Facilities: EAGHEAD_BT, EAGHEAD_FWKO1, EAGHEAD_FWKO2
+├── [LOW] Univ Equipment (121 facilities, 1183 tags)
+│   Keywords: univ, sec, booster
+│   UDCs: 194 distinct (0 core, 0 common)
+│   Sample Facilities: ARNETT_SD, BARNHART_E_PT_RD, BARNHART_W_PT_RD
+├── [MEDIUM] Sec Equipment (108 facilities, 369 tags)
+│   Keywords: sec, univ, device
+│   UDCs: 25 distinct (0 core, 0 common)
+│   Sample Facilities: BARNHART_SALES_1, BARNHART_SALES_3, BARNHART_SALES_4
+├── [HIGH] Gas Meters (107 facilities, 421 tags)
+│   Keywords: meter, poll, gas
+│   UDCs: 52 distinct (0 core, 0 common)
+│   Sample Facilities: LINTHICUMA_1H, LINTHICUMA_FCK1, LINTHICUMC_BULK_GAS
+├── [HIGH] Gas Meters (88 facilities, 471 tags)
+│   Keywords: meter, gas, univ
+│   UDCs: 51 distinct (0 core, 0 common)
+│   Sample Facilities: CIVITAS_ARNETT_FIL1, CIVITAS_ARNETT_WX1, LINTHICUMC_FAC1_AIR
+├── [HIGH] Gas Meters (75 facilities, 214 tags)
+│   Keywords: meter, gas, poll
+│   UDCs: 43 distinct (0 core, 0 common)
+│   Sample Facilities: LINTHICUMA_2H_GL, LINTHICUMC_1H_GL, LINTHICUMC_2H_GL
+├── [MEDIUM] Univ Equipment (66 facilities, 368 tags)
+│   Keywords: univ, sec, munson
+│   UDCs: 74 distinct (0 core, 0 common)
+│   Sample Facilities: BARNHART_SALES_2, BARNHART_SALES_6, HOBO_FAC1
+├── [HIGH] Poll Equipment (50 facilities, 71 tags)
+│   Keywords: poll, univ, sec
+│   UDCs: 17 distinct (0 core, 0 common)
+│   Sample Facilities: LINTHICUMA_FAC1_BMS1, LINTHICUMA_FAC1_FLR2, LINTHICUMIS_FAC1_BMS
+├── [HIGH] Gas Meters (42 facilities, 350 tags)
+│   Keywords: meter, munson, gas
+│   UDCs: 55 distinct (0 core, 0 common)
+│   Sample Facilities: BARNYARD_WTG_CK, GRAND_DEHY, LINTHICUMMN_FAC1_AIR
+├── [HIGH] Gas Meters (42 facilities, 383 tags)
+│   Keywords: meter, gas, poll
+│   UDCs: 49 distinct (0 core, 0 common)
+│   Sample Facilities: HAM_RE_6_GL, MAYER_4510H_GL, MAYER_4510WB_GL
+├── [HIGH] Poll Equipment (33 facilities, 168 tags)
+│   Keywords: poll, univ, vru
+│   UDCs: 66 distinct (0 core, 0 common)
+│   Sample Facilities: LINTHICUMC_VRU01, LINTHICUMC_VRU1, LINTHICUMIS_FAC1_FL2
+├── [HIGH] Meters (31 facilities, 328 tags)
+│   Keywords: check, meter, facility
+│   UDCs: 44 distinct (0 core, 0 common)
+│   Sample Facilities: BARNHART_SCK_1, BARNHART_SCK_2, BARNHART_SCK_3
+├── [HIGH] Gas Meters (19 facilities, 82 tags)
+│   Keywords: meter, gas, univ
+│   UDCs: 42 distinct (0 core, 0 common)
+│   Sample Facilities: LINTHICUMA_2H, LINTHICUMIS_CHK1, UNIV40EP_2505H
+├── [HIGH] Pumps (19 facilities, 122 tags)
+│   Keywords: sd, munson, pump
+│   UDCs: 53 distinct (0 core, 0 common)
+│   Sample Facilities: LINTHICUMC_6H, LINTHICUMC_8H, MUNSON_1201_GB1
+├── [HIGH] Meters (18 facilities, 121 tags)
+│   Keywords: poll, meter, test
+│   UDCs: 41 distinct (0 core, 0 common)
+│   Sample Facilities: BARNHART_SCK_5, MUNSON_1201_FUL1, SEM_HOBO_CK
+├── [HIGH] Univ Equipment (13 facilities, 84 tags)
+│   Keywords: univ, plunger
+│   UDCs: 42 distinct (0 core, 0 common)
+│   Sample Facilities: UNIV40B_1601H_PL, UNIV40B_1602H_PL, UNIV40B_1603H_PL
+├── [HIGH] Pond Equipment (13 facilities, 0 tags)
+│   Keywords: pond, univ, poll
+│   ⚠ No UDCs found for this equipment type
+│   Sample Facilities: UNIV40_POND_1303, UNIV40_POND_1305, UNIV40_POND_1306
+├── [HIGH] Gas Meters (12 facilities, 161 tags)
+│   Keywords: meter, gas, munson
+│   UDCs: 41 distinct (0 core, 0 common)
+│   Sample Facilities: MUNSON_FAC1_CK1, MUNSON_FAC2_CK1, MUNSON_FAC3_CK1
+└── [MEDIUM] Univ Equipment (11 facilities, 172 tags)
+    Keywords: univ, south, flare
+    UDCs: 60 distinct (1 core, 1 common)
+    Core UDCs:
+      • SYCSLSCT: 90.9% coverage (10 facilities)
+    Sample Facilities: 38_40W_1, BARNHART_E_PT, BARNHART_W_PT
+
+================================================================================
+SUMMARY STATISTICS
+--------------------------------------------------------------------------------
+Root Categories: 6
+Hierarchical Children: 21
+Isolated Types: 23
+Average Jaccard Similarity: 0.909
+================================================================================

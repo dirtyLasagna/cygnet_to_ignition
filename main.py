@@ -40,7 +40,12 @@ from cyg_to_ign.Scripts.summary_utils import load_summaries
 from working import cache
 
 # rich formatting
-from cyg_to_ign.Scripts.rich_formatting import display_trs_summary, display_pnt_summary, display_fac_summary
+from cyg_to_ign.Scripts.rich_formatting import display_trs_summary, display_pnt_summary, display_fac_summary, display_attribute_analysis, display_description_analysis
+
+# heavy analysis
+from cyg_to_ign.Scripts.heavy_analysis.attribute_analysis import run_attribute_analysis
+from cyg_to_ign.Scripts.heavy_analysis.description_analysis import run_description_analysis
+from cyg_to_ign.Scripts.heavy_analysis.udc_bridge_analysis import run_udc_bridge_analysis
 
 # metadata - globals
 working_folder = common.getWorkingFolder()
@@ -62,6 +67,9 @@ COMMANDS = {
     "parse-fac": "Parse FAC (Facility) CSV file",
     "compare-trs-pnt": "Compare TRS and PNT summaries for coverage analysis",
     "validate-all": "Validate relationships across TRS, PNT, and FAC datasets",
+    "analyze-attributes": "[HEAVY] Discover facility types through attribute pattern analysis",
+    "analyze-descriptions": "[HEAVY] Extract semantic patterns and name equipment types",
+    "analyze-udcs": "[HEAVY] Validate equipment types with UDC evidence and build hierarchy tree",
     "show-cache": "Display all cached summaries with timestamps",
     "show-parse-paths": "Show current parser file paths from working.json",
     "help": "Show this help message",
@@ -239,6 +247,122 @@ def main():
             continue
         
         # ==================================
+        #       analysis commands
+        # ==================================
+        if user_input.lower() == "analyze-attributes":
+            console.print("[bold cyan]Starting Facility Attribute Analysis[/bold cyan]\n")
+            
+            # Check prerequisites - need FAC summary
+            from cyg_to_ign.Scripts.summary_utils import check_summary
+            fac_status = check_summary("fac_summary")
+            
+            if not fac_status["present"]:
+                console.print("[red]✗ FAC summary not found[/red]")
+                console.print("  Run [yellow]parse-fac[/yellow] first to generate FAC summary.\n")
+                continue
+            
+            # Load FAC summary
+            cached_summaries = load_summaries()
+            fac_summary = cached_summaries.get("fac_summary", {})
+            
+            # Build FAC file path
+            fac_filepath = parser_filepaths["base-path"] + "\\" + parser_filepaths["parse-fac"] + parser_filepaths.get("extension")
+            
+            console.print("[cyan]Analyzing facility attributes...[/cyan]")
+            console.print(f"[dim]File: {fac_filepath}[/dim]\n")
+            
+            try:
+                # Run attribute analysis
+                analysis_results = run_attribute_analysis(
+                    fac_filepath=fac_filepath,
+                    fac_summary=fac_summary,
+                    output_detail="summary"  # Start with summary
+                )
+                
+                # Display results
+                display_attribute_analysis(analysis_results)
+                
+                # Save to summaries.json
+                from cyg_to_ign.Scripts.summary_utils import save_summary
+                save_result = save_summary(
+                    summ_dict=analysis_results,
+                    filepath=fac_filepath,
+                    label="analysis_attributes"
+                )
+                
+                if save_result["ok"]:
+                    console.print(f"[green]✓ Analysis saved to summaries.json[/green]\n")
+                else:
+                    console.print(f"[yellow]⚠ Could not save analysis: {save_result['message']}[/yellow]\n")
+                
+            except Exception as e:
+                console.print(f"[red]✗ Analysis failed: {e}[/red]")
+                import traceback
+                console.print(f"[dim]{traceback.format_exc()}[/dim]\n")
+            
+            continue
+        
+        if user_input.lower() == "analyze-descriptions":
+            console.print("[bold cyan]Starting Facility Description Analysis (Phase 2)[/bold cyan]\n")
+            
+            # Check prerequisites - need FAC summary and Phase 1 results
+            from cyg_to_ign.Scripts.summary_utils import check_summaries
+            status = check_summaries(["fac_summary", "analysis_attributes"])
+            
+            if not status["ok"]:
+                console.print("[red]✗ Missing prerequisites:[/red]")
+                for missing in status["missing"]:
+                    console.print(f"  • {missing}")
+                if "fac_summary" in status["missing"]:
+                    console.print("  Run [yellow]parse-fac[/yellow] first.")
+                if "analysis_attributes" in status["missing"]:
+                    console.print("  Run [yellow]analyze-attributes[/yellow] first.\n")
+                continue
+            
+            # Load summaries and Phase 1 results
+            cached_summaries = load_summaries()
+            fac_summary = cached_summaries.get("fac_summary", {})
+            analysis_attributes = cached_summaries.get("analysis_attributes", {})
+            
+            # Build FAC file path
+            fac_filepath = parser_filepaths["base-path"] + "\\" + parser_filepaths["parse-fac"] + parser_filepaths.get("extension")
+            
+            console.print("[cyan]Analyzing facility descriptions...[/cyan]")
+            console.print(f"[dim]Processing {analysis_attributes.get('facility_groups_found', 0)} facility groups[/dim]\n")
+            
+            try:
+                # Run description analysis
+                analysis_results = run_description_analysis(
+                    fac_filepath=fac_filepath,
+                    fac_summary=fac_summary,
+                    analysis_attributes=analysis_attributes,
+                    output_detail="summary"
+                )
+                
+                # Display results
+                display_description_analysis(analysis_results)
+                
+                # Save to summaries.json
+                from cyg_to_ign.Scripts.summary_utils import save_summary
+                save_result = save_summary(
+                    summ_dict=analysis_results,
+                    filepath=fac_filepath,
+                    label="analysis_descriptions"
+                )
+                
+                if save_result["ok"]:
+                    console.print(f"[green]✓ Analysis saved to summaries.json[/green]\n")
+                else:
+                    console.print(f"[yellow]⚠ Could not save analysis: {save_result['message']}[/yellow]\n")
+                
+            except Exception as e:
+                console.print(f"[red]✗ Analysis failed: {e}[/red]")
+                import traceback
+                console.print(f"[dim]{traceback.format_exc()}[/dim]\n")
+            
+            continue
+        
+        # ==================================
         #       validation commands
         # ==================================
         if user_input.lower() == "validate-all":
@@ -392,6 +516,117 @@ def main():
                 
             except Exception as e:
                 console.print(f"\n[bold red]Validation failed:[/bold red] {e}")
+                import traceback
+                traceback.print_exc()
+            
+            continue
+        
+        # =============================
+        #   analyze-udcs (Phase 3)
+        # =============================
+        if user_input.lower() == "analyze-udcs":
+            console.print("\n[bold cyan]=== Phase 3: UDC Bridge Analysis ===[/bold cyan]\n")
+            
+            # Check prerequisites
+            if "analysis_descriptions" not in cached_summaries or not cached_summaries.get("analysis_descriptions"):
+                console.print("[red]✗ Phase 2 results not found in summaries.json[/red]")
+                console.print("\n[yellow]Please run Phase 2 first:[/yellow]")
+                console.print("  • analyze-descriptions")
+                continue
+            
+            if "analysis_attributes" not in cached_summaries or not cached_summaries.get("analysis_attributes"):
+                console.print("[red]✗ Phase 1 results not found in summaries.json[/red]")
+                console.print("\n[yellow]Please run Phase 1 first:[/yellow]")
+                console.print("  • analyze-attributes")
+                continue
+            
+            # Check for merged dataset
+            merged_dataset_path = parser_filepaths.get("merged-validation-dataset")
+            if not merged_dataset_path:
+                console.print("[red]✗ Merged validation dataset path not found[/red]")
+                console.print("\n[yellow]Please run validation first:[/yellow]")
+                console.print("  • validate-all")
+                continue
+            
+            # Build FAC file path
+            fac_filepath = parser_filepaths["base-path"] + "\\\\" + parser_filepaths["parse-fac"] + parser_filepaths.get("extension")
+            
+            console.print("[cyan]Running Phase 3 UDC Bridge Analysis...[/cyan]")
+            console.print(f"[dim]Using merged dataset: {merged_dataset_path}[/dim]\n")
+            
+            try:
+                # Run Phase 3 analysis (equipment types already have facility_ids from Phase 2)
+                analysis_results = run_udc_bridge_analysis(
+                    merged_dataset_path=merged_dataset_path,
+                    analysis_descriptions=cached_summaries["analysis_descriptions"],
+                    output_detail="detailed"
+                )
+                
+                # Check for errors
+                if "error" in analysis_results:
+                    console.print(f"[red]✗ Analysis failed: {analysis_results['error']}[/red]")
+                    if "recommendation" in analysis_results:
+                        console.print(f"[yellow]→ {analysis_results['recommendation']}[/yellow]")
+                    continue
+                
+                # Display results (basic console output for now)
+                console.print("[bold green]✓ Phase 3 Analysis Complete![/bold green]\n")
+                
+                console.print("[bold cyan]Summary:[/bold cyan]")
+                console.print(f"  Equipment Types Analyzed: {analysis_results.get('total_equipment_types', 0)}")
+                console.print(f"  Tags Analyzed: {analysis_results.get('total_tags_analyzed', 0):,}")
+                
+                # UDC Profile Summary
+                udc_summary = analysis_results.get("udc_profile_summary", {})
+                console.print(f"\n[bold cyan]UDC Profiles:[/bold cyan]")
+                console.print(f"  Profiles Generated: {udc_summary.get('total_profiles', 0)}")
+                console.print(f"  Avg UDCs per Type: {udc_summary.get('avg_udcs_per_type', 0)}")
+                console.print(f"  Total Distinct UDCs: {udc_summary.get('total_distinct_udcs', 0)}")
+                
+                # Hierarchy Summary
+                hierarchy_summary = analysis_results.get("hierarchy_summary", {})
+                console.print(f"\n[bold cyan]Equipment Hierarchy:[/bold cyan]")
+                console.print(f"  Hierarchical Relationships: {hierarchy_summary.get('total_relationships', 0)}")
+                console.print(f"  Root Categories: {hierarchy_summary.get('root_nodes_count', 0)}")
+                console.print(f"  Isolated Types: {hierarchy_summary.get('isolated_nodes_count', 0)}")
+                
+                # Consolidation Summary
+                consolidation = analysis_results.get("consolidation_summary", {})
+                console.print(f"\n[bold cyan]Group Consolidation:[/bold cyan]")
+                console.print(f"  Before: {consolidation.get('before', 0)} equipment types")
+                console.print(f"  After: {consolidation.get('after', 0)} equipment types")
+                console.print(f"  Merged: {consolidation.get('merged', 0)} groups")
+                
+                # Confidence Analysis
+                confidence_summary = analysis_results.get("confidence_summary", {})
+                console.print(f"\n[bold cyan]Confidence Validation:[/bold cyan]")
+                console.print(f"  High Confidence: {confidence_summary.get('high_confidence_count', 0)}")
+                console.print(f"  Medium Confidence: {confidence_summary.get('medium_confidence_count', 0)}")
+                console.print(f"  Low Confidence: {confidence_summary.get('low_confidence_count', 0)}")
+                
+                # Hierarchy Tree File
+                tree_path = analysis_results.get("hierarchy_tree_path")
+                if tree_path and not tree_path.startswith("ERROR"):
+                    console.print(f"\n[bold green]✓ Equipment hierarchy tree saved:[/bold green]")
+                    console.print(f"  {tree_path}")
+                elif tree_path:
+                    console.print(f"\n[yellow]⚠ {tree_path}[/yellow]")
+                
+                # Recommendations
+                console.print(f"\n[bold cyan]Recommendations:[/bold cyan]")
+                for rec in analysis_results.get("recommendations", []):
+                    console.print(f"  {rec}")
+                
+                # Save to summaries.json
+                from cyg_to_ign.Scripts.summary_utils import save_summary
+                res = save_summary(analysis_results, filepath=None, label="analysis_udc")
+                if res.get("ok"):
+                    console.print(f"\n[green]✓ Phase 3 results saved to {res['path']}[/green]")
+                else:
+                    console.print(f"\n[yellow]⚠ Failed to save results: {res.get('message')}[/yellow]")
+                
+            except Exception as e:
+                console.print(f"\n[bold red]Phase 3 analysis failed:[/bold red] {e}")
                 import traceback
                 traceback.print_exc()
             
